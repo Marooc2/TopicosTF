@@ -13,7 +13,7 @@ public class Topicos_TP {
         int[][] g = {{0, 0},
                      {0, 0}};
         //Ingresar las cardinalidades
-        int[] card = {3,3};
+        int[] card = {2,2};
         // Ingresar Alpha
         int alpha = 1;
 
@@ -28,20 +28,29 @@ public class Topicos_TP {
 
         //INGRESAR VARIABLES PARA HALLAR LA DISTRIBUCION CONJUNTA DEL DATASET
         int[] variablesConjunta = {0,1};
-        ArrayList<Double> Distribuciones = DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
+        ArrayList<Double> distribuciones = DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
 
-        for (int i=0; i<Distribuciones.size();i++)
-            System.out.println(Distribuciones.get(i));
+        for (int i=0; i<distribuciones.size();i++){
+            distribuciones.get(i);
+        }
 
         int[] vars = {0,1};
-        int index = -1;
-        int[] vals = {0,1};
+        int[] vals = {1,1};
         // A = 0 B = 1
         // P(A=0,B=1)
+        System.out.println("Cuando A: " + vals[0] + " y B: "+ vals[1]);
+        System.out.println("INDICE: " + GetIndex(vars,vals,card,distribuciones));
 
+    }
+    public static int GetIndex(int[] variable,int[] valor, int[] cardinalidad, ArrayList<Double> distribucion){
+        int index = 0;
 
+        for (int i=0;i<variable.length;i++){
+            index+= valor[i];
+        }
+        index = index+(cardinalidad[0]-1)*valor[variable.length-1];
 
-
+        return index;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -199,12 +208,12 @@ public class Topicos_TP {
                 ivar = var[j];
                 val[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);
                 cardAnterior *= card[ivar];
-                //System.out.print(val[j]);
+                System.out.print(val[j]);
 
             }
             double pc = ProbabilidadConjuntaDiricht(var, val, card, alpha, ds);
             suma = suma + pc;
-            //System.out.println(" = " + pc);
+            System.out.println(" = " + pc);
             Distribuciones.add(pc);
         }
         //System.out.println("Suma: " + suma);
