@@ -13,12 +13,12 @@ public class Topicos_TP {
         int[][] g = {{0, 0},
                      {0, 0}};
         //Ingresar las cardinalidades
-        int[] card = {2,2};
+        int[] card = {3,2,2};
         // Ingresar Alpha
         int alpha = 1;
 
         //Lectura del dataset // INGRESAR NOMBRE DE ARCHIVO
-        int[][] dataset = ReadDs("data.txt");
+        int[][] dataset = ReadDs("data2.txt");
         int columnas = ColumnasDs(dataset);
         //Transformar la vista de las distribuciones de numeros a letras
         char[] varnames = new char[columnas];
@@ -27,29 +27,36 @@ public class Topicos_TP {
         //VisualizarDistribuciones(g, card, alpha, dataset, varnames);
 
         //INGRESAR VARIABLES PARA HALLAR LA DISTRIBUCION CONJUNTA DEL DATASET
-        int[] variablesConjunta = {0,1};
+        int[] variablesConjunta = {0,1,2};
         ArrayList<Double> distribuciones = DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
 
         for (int i=0; i<distribuciones.size();i++){
             distribuciones.get(i);
         }
 
-        int[] vars = {0,1};
-        int[] vals = {1,1};
+        int[] vars = {0,1,2};
+        int[] vals = {2,1,1};
         // A = 0 B = 1
         // P(A=0,B=1)
-        System.out.println("Cuando A: " + vals[0] + " y B: "+ vals[1]);
-        System.out.println("INDICE: " + GetIndex(vars,vals,card,distribuciones));
+        //System.out.println(" Cuando A: " + vals[0] + " y B: "+ vals[1]);
+        System.out.println("Indice de A: "+ vals[0] + " B: " + vals[1] + " C: " +vals[2] + " = " + GetIndex(vars,vals,card,distribuciones));
 
     }
     public static int GetIndex(int[] variable,int[] valor, int[] cardinalidad, ArrayList<Double> distribucion){
         int index = 0;
-
-        for (int i=0;i<variable.length;i++){
+        int[] aux = new int[cardinalidad.length+1];
+        aux[0] = 1;
+        for (int i=1;i<aux.length;i++){
+            aux[i] = aux[i-1]*cardinalidad[i-1];
+        }
+        for (int j=0;j<cardinalidad.length;j++){
+            index += valor[j]* aux[j];
+        }
+        /*for (int i=0;i<variable.length;i++){
             index+= valor[i];
         }
         index = index+(cardinalidad[0]-1)*valor[variable.length-1];
-
+         */
         return index;
     }
 
