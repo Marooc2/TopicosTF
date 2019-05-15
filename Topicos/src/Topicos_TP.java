@@ -38,8 +38,9 @@ public class Topicos_TP {
         int[] vals = {2,1,1};
         // A = 0 B = 1
         // P(A=0,B=1)
-        //System.out.println(" Cuando A: " + vals[0] + " y B: "+ vals[1]);
-        System.out.println("Indice de A: "+ vals[0] + " B: " + vals[1] + " C: " +vals[2] + " = " + GetIndex(vars,vals,card,distribuciones));
+
+        System.out.println("Indice de A = " + vals[0] + " B = " + vals[1] + " C = " +vals[2]);
+        System.out.println(GetIndex(vars,vals,card,distribuciones));
 
     }
     public static int GetIndex(int[] variable,int[] valor, int[] cardinalidad, ArrayList<Double> distribucion){
@@ -60,6 +61,9 @@ public class Topicos_TP {
         return index;
     }
 
+    public static double GetProb(int[] variable,int[] valor, int[] cardinalidad, ArrayList<Double> distribucion){
+        return 0;
+    }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //LECTURA DEL DATASET
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -231,6 +235,7 @@ public class Topicos_TP {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //DISTRIBUCIONES
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public static List<List<Integer>> GeneraDistribuciones(int[][] grafo) {
 
         List<List<Integer>> listPosicionesDis = new ArrayList<List<Integer>>();
