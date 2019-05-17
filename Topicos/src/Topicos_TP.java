@@ -35,12 +35,16 @@ public class Topicos_TP {
         }
 
         int[] vars = {0,1,2};
-        int[] vals = {2,1,1};
+        int[] vals = {2,0,0};
+        int indice;
         // A = 0 B = 1
         // P(A=0,B=1)
 
-        System.out.println("Indice de A = " + vals[0] + " B = " + vals[1] + " C = " +vals[2]);
+        //System.out.println("Indice de A = " + vals[0] + " B = " + vals[1] + " C = " +vals[2]);
+        indice = GetIndex(vars,vals,card,distribuciones);
         System.out.println(GetIndex(vars,vals,card,distribuciones));
+
+        GetPosList(vars,card,indice);
 
     }
     public static int GetIndex(int[] variable,int[] valor, int[] cardinalidad, ArrayList<Double> distribucion){
@@ -61,8 +65,18 @@ public class Topicos_TP {
         return index;
     }
 
-    public static double GetProb(int[] variable,int[] valor, int[] cardinalidad, ArrayList<Double> distribucion){
-        return 0;
+    public static int[] GetPosList(int[] variable,int[] cardinalidad, int index){
+        int ivar;
+        int cardAnterior = 1;
+        int[] valores = new int[cardinalidad.length];
+        for (int j = 0; j < variable.length; j++) {
+            ivar = variable[j];
+            valores[j] = (int) (Math.floor(index / cardAnterior) % cardinalidad[ivar]);
+            cardAnterior *= cardinalidad[ivar];
+            System.out.print(valores[j]);
+        }
+        System.out.println();
+        return valores;
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //LECTURA DEL DATASET
@@ -220,7 +234,6 @@ public class Topicos_TP {
                 val[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);
                 cardAnterior *= card[ivar];
                 System.out.print(val[j]);
-
             }
             double pc = ProbabilidadConjuntaDiricht(var, val, card, alpha, ds);
             suma = suma + pc;
