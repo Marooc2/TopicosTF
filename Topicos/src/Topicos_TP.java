@@ -10,15 +10,15 @@ public class Topicos_TP {
     public static void main(String[] args) throws FileNotFoundException {
         //INPUT
         //Matriz de adyacencia de g
-        int[][] g = {{0, 0},
+        int[][] g = {{0, 1},
                      {0, 0}};
         //Ingresar las cardinalidades
-        int[] card = {3,2,2};
+        int[] card = {2,2};
         // Ingresar Alpha
-        int alpha = 1;
+        int alpha = 0;
 
         //Lectura del dataset // INGRESAR NOMBRE DE ARCHIVO
-        int[][] dataset = ReadDs("data2.txt");
+        int[][] dataset = ReadDs("data3.txt");
         int columnas = ColumnasDs(dataset);
         //Transformar la vista de las distribuciones de numeros a letras
         char[] varnames = new char[columnas];
@@ -27,11 +27,12 @@ public class Topicos_TP {
         VisualizarDistribuciones(g, card, alpha, dataset, varnames);
 
         //INGRESAR VARIABLES PARA HALLAR LA DISTRIBUCION CONJUNTA DEL DATASET
-        int[] variablesConjunta = {0,1,2};
+        int[] variablesConjunta = {0,1};
+        System.out.println("Distribucion Conjunta: ");
         ArrayList<Double> distribuciones = DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
 
-        int[] vars = {0,1,2};
-        int[] vals = {2,0,0};
+        int[] vars = {0,1};
+        int[] vals = {1,0};
 
         GetProbabilidad(vars,vals,card,distribuciones);
 
