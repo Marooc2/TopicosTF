@@ -24,30 +24,19 @@ public class Topicos_TP {
         char[] varnames = new char[columnas];
         varnames = GeneraVariables(varnames);
         //Realiza las distribuciones del grafo e imprime
-        //VisualizarDistribuciones(g, card, alpha, dataset, varnames);
+        VisualizarDistribuciones(g, card, alpha, dataset, varnames);
 
         //INGRESAR VARIABLES PARA HALLAR LA DISTRIBUCION CONJUNTA DEL DATASET
         int[] variablesConjunta = {0,1,2};
         ArrayList<Double> distribuciones = DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
 
-        for (int i=0; i<distribuciones.size();i++){
-            distribuciones.get(i);
-        }
-
         int[] vars = {0,1,2};
         int[] vals = {2,0,0};
-        int indice;
-        // A = 0 B = 1
-        // P(A=0,B=1)
 
-        //System.out.println("Indice de A = " + vals[0] + " B = " + vals[1] + " C = " +vals[2]);
-        indice = GetIndex(vars,vals,card,distribuciones);
-        System.out.println(GetIndex(vars,vals,card,distribuciones));
-
-        GetPosList(vars,card,indice);
+        GetProbabilidad(vars,vals,card,distribuciones);
 
     }
-    public static int GetIndex(int[] variable,int[] valor, int[] cardinalidad, ArrayList<Double> distribucion){
+    public static int GetIndex(int[] valor, int[] cardinalidad){
         int index = 0;
         int[] aux = new int[cardinalidad.length+1];
         aux[0] = 1;
@@ -57,11 +46,6 @@ public class Topicos_TP {
         for (int j=0;j<cardinalidad.length;j++){
             index += valor[j]* aux[j];
         }
-        /*for (int i=0;i<variable.length;i++){
-            index+= valor[i];
-        }
-        index = index+(cardinalidad[0]-1)*valor[variable.length-1];
-         */
         return index;
     }
 
@@ -75,8 +59,24 @@ public class Topicos_TP {
             cardAnterior *= cardinalidad[ivar];
             System.out.print(valores[j]);
         }
-        System.out.println();
+        System.out.print(" =");
         return valores;
+    }
+
+    public static double GetProbabilidad(int[] vars, int[]vals, int[] card, ArrayList<Double> dist){
+        double prob = 0.0;
+        int ind;
+        ind = GetIndex(vals,card);
+        System.out.println();
+        System.out.println("Indice: " + ind);
+        GetPosList(vars,card,ind);
+        for (int i=0;i<dist.size();i++){
+         if(i == ind){
+             prob = dist.get(ind);
+             System.out.print(" " + prob);
+         }
+        }
+        return prob;
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //LECTURA DEL DATASET
