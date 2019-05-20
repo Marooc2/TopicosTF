@@ -19,12 +19,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Topicos_TP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
+            <state relative-caret-position="340">
+              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#GetIndex#0;class#Topicos_TP#0" />
                 <element signature="method#GetPosList#0;class#Topicos_TP#0" />
                 <element signature="method#GetProbabilidad#0;class#Topicos_TP#0" />
+                <element signature="method#ConjuntaGrafo#0;class#Topicos_TP#0" />
+                <element signature="method#ReadDs#0;class#Topicos_TP#0" />
+                <element signature="method#ColumnasDs#0;class#Topicos_TP#0" />
+                <element signature="method#GeneraVariables#0;class#Topicos_TP#0" />
+                <element signature="method#ProbabilidadMarginalDiricht#0;class#Topicos_TP#0" />
+                <element signature="method#ProbabilidadConjuntaDiricht#0;class#Topicos_TP#0" />
+                <element signature="method#ProbabilidadCondicionadaDiricht#0;class#Topicos_TP#0" />
+                <element signature="method#DistribucionPConjunta#0;class#Topicos_TP#0" />
+                <element signature="method#toInArray#0;class#Topicos_TP#0" />
                 <element signature="method#GeneraDistribuciones#0;class#Topicos_TP#0" />
                 <element signature="method#RealizaDistribuciones#0;class#Topicos_TP#0" />
                 <element signature="method#VisualizarDistribuciones#0;class#Topicos_TP#0" />
@@ -91,7 +101,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -108,6 +117,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,11 +231,12 @@
       <workItem from="1558017699152" duration="206000" />
       <workItem from="1558119664360" duration="1969000" />
       <workItem from="1558363854356" duration="3429000" />
+      <workItem from="1558381068905" duration="238000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133555000" />
+    <option name="totallyTimeSpent" value="133793000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -240,7 +251,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20877458" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1096823" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -268,7 +279,7 @@
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info active="true" anchor="right" id="Run" order="9" visible="true" weight="0.28517398" />
+      <window_info anchor="right" id="Run" order="9" weight="0.28517398" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.17063493" />
@@ -388,9 +399,7 @@
     <entry file="file://$PROJECT_DIR$/src/Topicos_modificado.java" />
     <entry file="file://E:/Topicos/TB2/RateDSCorregidos/src/RateDSCorregidos.java" />
     <entry file="file://$PROJECT_DIR$/archivo.txt" />
-    <entry file="file://$PROJECT_DIR$/data2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data2.txt" />
     <entry file="file://$PROJECT_DIR$/data.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -400,12 +409,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Topicos_TP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
+        <state relative-caret-position="340">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#GetIndex#0;class#Topicos_TP#0" />
             <element signature="method#GetPosList#0;class#Topicos_TP#0" />
             <element signature="method#GetProbabilidad#0;class#Topicos_TP#0" />
+            <element signature="method#ConjuntaGrafo#0;class#Topicos_TP#0" />
+            <element signature="method#ReadDs#0;class#Topicos_TP#0" />
+            <element signature="method#ColumnasDs#0;class#Topicos_TP#0" />
+            <element signature="method#GeneraVariables#0;class#Topicos_TP#0" />
+            <element signature="method#ProbabilidadMarginalDiricht#0;class#Topicos_TP#0" />
+            <element signature="method#ProbabilidadConjuntaDiricht#0;class#Topicos_TP#0" />
+            <element signature="method#ProbabilidadCondicionadaDiricht#0;class#Topicos_TP#0" />
+            <element signature="method#DistribucionPConjunta#0;class#Topicos_TP#0" />
+            <element signature="method#toInArray#0;class#Topicos_TP#0" />
             <element signature="method#GeneraDistribuciones#0;class#Topicos_TP#0" />
             <element signature="method#RealizaDistribuciones#0;class#Topicos_TP#0" />
             <element signature="method#VisualizarDistribuciones#0;class#Topicos_TP#0" />
