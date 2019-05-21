@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf654be4-917f-4cb0-961f-d165e0015e4a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Topicos_TP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Topicos_TP.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,14 +22,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Topicos_TP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+            <state relative-caret-position="266">
+              <caret line="91" column="46" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#GetIndex#0;class#Topicos_TP#0" />
                 <element signature="method#GetPosList#0;class#Topicos_TP#0" />
                 <element signature="method#GetProbabilidad#0;class#Topicos_TP#0" />
-                <element signature="method#ConjuntaGrafo#0;class#Topicos_TP#0" />
                 <element signature="method#ReadDs#0;class#Topicos_TP#0" />
                 <element signature="method#ColumnasDs#0;class#Topicos_TP#0" />
                 <element signature="method#GeneraVariables#0;class#Topicos_TP#0" />
@@ -36,8 +38,12 @@
                 <element signature="method#DistribucionPConjunta#0;class#Topicos_TP#0" />
                 <element signature="method#toInArray#0;class#Topicos_TP#0" />
                 <element signature="method#GeneraDistribuciones#0;class#Topicos_TP#0" />
+                <element signature="e#10497#10506#0" expanded="true" />
                 <element signature="method#RealizaDistribuciones#0;class#Topicos_TP#0" />
+                <element signature="e#11007#11030#0" />
+                <element signature="e#11485#12858#1" />
                 <element signature="method#VisualizarDistribuciones#0;class#Topicos_TP#0" />
+                <element signature="e#14321#16156#1" />
               </folding>
             </state>
           </provider>
@@ -64,6 +70,9 @@
       <find>valores de las</find>
       <find>distribuciones de la</find>
       <find>ProbabilidadCondicionadaDiricht</find>
+      <find>List</find>
+      <find>listdis</find>
+      <find>System.out.println</find>
     </findStrings>
     <replaceStrings>
       <replace>q</replace>
@@ -89,10 +98,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="768" />
-    <option name="y" value="-12" />
-    <option name="width" value="697" />
-    <option name="height" value="775" />
+    <option name="x" value="-7" />
+    <option name="width" value="943" />
+    <option name="height" value="1087" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -100,7 +108,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -118,6 +125,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -231,12 +239,12 @@
       <workItem from="1558017699152" duration="206000" />
       <workItem from="1558119664360" duration="1969000" />
       <workItem from="1558363854356" duration="3429000" />
-      <workItem from="1558381068905" duration="238000" />
+      <workItem from="1558381068905" duration="1842000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133793000" />
+    <option name="totallyTimeSpent" value="148263000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -248,10 +256,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1096823" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.22423556" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -269,7 +277,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.38556066" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32872504" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.06334372" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -279,7 +287,7 @@
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Run" order="9" weight="0.28517398" />
+      <window_info active="true" anchor="right" id="Run" order="9" visible="true" weight="0.21113561" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.17063493" />
@@ -400,23 +408,40 @@
     <entry file="file://E:/Topicos/TB2/RateDSCorregidos/src/RateDSCorregidos.java" />
     <entry file="file://$PROJECT_DIR$/archivo.txt" />
     <entry file="file://$PROJECT_DIR$/data2.txt" />
+    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/util/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="371" column="29" selection-start-line="371" selection-start-column="29" selection-end-line="371" selection-end-column="29" />
+          <folding>
+            <element signature="e#13877#13878#0" expanded="true" />
+            <element signature="e#13945#13946#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        <state relative-caret-position="153">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Topicos_TP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+        <state relative-caret-position="266">
+          <caret line="91" column="46" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#GetIndex#0;class#Topicos_TP#0" />
             <element signature="method#GetPosList#0;class#Topicos_TP#0" />
             <element signature="method#GetProbabilidad#0;class#Topicos_TP#0" />
-            <element signature="method#ConjuntaGrafo#0;class#Topicos_TP#0" />
             <element signature="method#ReadDs#0;class#Topicos_TP#0" />
             <element signature="method#ColumnasDs#0;class#Topicos_TP#0" />
             <element signature="method#GeneraVariables#0;class#Topicos_TP#0" />
@@ -426,8 +451,12 @@
             <element signature="method#DistribucionPConjunta#0;class#Topicos_TP#0" />
             <element signature="method#toInArray#0;class#Topicos_TP#0" />
             <element signature="method#GeneraDistribuciones#0;class#Topicos_TP#0" />
+            <element signature="e#10497#10506#0" expanded="true" />
             <element signature="method#RealizaDistribuciones#0;class#Topicos_TP#0" />
+            <element signature="e#11007#11030#0" />
+            <element signature="e#11485#12858#1" />
             <element signature="method#VisualizarDistribuciones#0;class#Topicos_TP#0" />
+            <element signature="e#14321#16156#1" />
           </folding>
         </state>
       </provider>

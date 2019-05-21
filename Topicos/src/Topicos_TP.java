@@ -1,4 +1,5 @@
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -16,9 +17,8 @@ public class Topicos_TP {
         int[] card = {2,2};
         // Ingresar Alpha
         int alpha = 0;
-
         //Lectura del dataset // INGRESAR NOMBRE DE ARCHIVO
-        int[][] dataset = ReadDs("data2.txt");
+        int[][] dataset = ReadDs("data3.txt");
         int columnas = ColumnasDs(dataset);
         //Transformar la vista de las distribuciones de numeros a letras
         char[] varnames = new char[columnas];
@@ -85,42 +85,34 @@ public class Topicos_TP {
         return prob;
     }
 
-    public static List<int[]> ConjuntaGrafo(int[] vars, int[] vals, int[] card, int alpha, int[][]grafo,int[][]ds){
+    public static List<int[]> ConjuntaGrafo(int[] vars, int[] vals, int[] card, int alpha, int[][]grafo, int[][]ds) {
+
         System.out.println("Distribucion Conjunta del grafo");
-        int ivar;
-        int cardAnterior;
-        int tamfactor = 1;
-        double a;
-
         List<int[]> ConjuntaG = GeneraDistribuciones(grafo);
+        List<double[]> listDistribucionesGrafo = RealizaDistribuciones(grafo, card, alpha, ds);
 
+        int[] val = new int[vars.length];
+        int ivar;
+        int cardAnterior = 1;
+        int tamfactor = 1;
+
+        //  Halla el tamaño del factor
         for (int p = 0; p < vars.length; p++) {
             tamfactor *= card[p];
         }
 
-        for (int i = 0;i<ConjuntaG.size();i++){
-            for (int j = 0; j < ConjuntaG.get(i).length; j++){
-                if(ConjuntaG.get(i).length == 1){
-                    int[] aux = ConjuntaG.get(i);
-                    a = ProbabilidadConjuntaDiricht(ConjuntaG.get(i),vals,card,alpha,ds);
-                }
-                else{
-                    //a = ProbabilidadCondicionadaDiricht(vars,grafo,card,alpha,ds);
-                }
-            }
-        }
-        /*
         for (int k = 0; k < tamfactor; k++) {
             cardAnterior = 1;
             for (int j = 0; j < vars.length; j++) {
                 ivar = vars[j];
-                vals[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);
+                val[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);
                 cardAnterior *= card[ivar];
-                System.out.print(vals[j]);
+                System.out.print(val[j]);
             }
-            System.out.println(" = ");
+            System.out.println();
         }
-         */
+
+
         return ConjuntaG;
     }
 
@@ -236,9 +228,7 @@ public class Topicos_TP {
             }
             Distribucion[i] = ProbA / ProbB;
         }
-
         // Normalizar
-
         for (int i = 0; i < Distribucion.length; i++) {
             SumProb += Distribucion[i];
         }
@@ -246,16 +236,7 @@ public class Topicos_TP {
         for (int j = 0; j < Distribucion.length; j++) {
             Distribucion[j] = Distribucion[j] / SumProb;
         }
-        // Imprimir
-        for (int k = 0; k < Distribucion.length; k++) {
-            System.out.print("Valores de las variables: ");
-            for (int l = 0; l < vals[k].length; l++) {
-                System.out.print(vals[k][l]+ " ");
-            }
-            System.out.println();
-            System.out.print(Distribucion[k]);
-            System.out.println();
-        }
+
         return Distribucion;
     }
 
@@ -271,8 +252,6 @@ public class Topicos_TP {
         for (int p = 0; p < var.length; p++) {
             tamfactor *= card[p];
         }
-        //System.out.println("FACTOR: " + tamfactor);
-        //System.out.println("Distribucion conjunta del dataset:");
 
         for (int k = 0; k < tamfactor; k++) {
             cardAnterior = 1;
@@ -287,7 +266,6 @@ public class Topicos_TP {
             System.out.println(" = " + pc);
             Distribuciones.add(pc);
         }
-        //System.out.println("Suma: " + suma);
 
         return Distribuciones;
     }
@@ -322,15 +300,16 @@ public class Topicos_TP {
         return listPosicionesDis;
     }
 
-    public static void RealizaDistribuciones(int[][] grafo, int[] card, int alpha, int[][] ds) {
+    public static List<double[]> RealizaDistribuciones(int[][] grafo, int[] card, int alpha, int[][] ds) {
 
         List<int[]> listDis = GeneraDistribuciones(grafo);
-        boolean flag = true;
+        List<double[]> listDistribuciones = new ArrayList<double[]>();
+
         for (int i = 0; i < listDis.size(); i++) {
             for (int j=0; j < listDis.get(i).length;j++){
-                System.out.print(listDis.get(i)[j]);
+                //System.out.print(listDis.get(i)[j]);
             }
-            System.out.println();
+            //System.out.println();
 
             //System.out.print(listDis.get(i));
             //Si el arreglo de distribuciones en la posicion i es mayor que 1
@@ -357,9 +336,14 @@ public class Topicos_TP {
                         }
                         auxval[x] = val.clone();
                     }
-                    ProbabilidadCondicionadaDiricht(listDis.get(i), auxval, card, alpha, ds);
-                    System.out.println();
+                    double[] pc = ProbabilidadCondicionadaDiricht(listDis.get(i), auxval, card, alpha, ds);
+                    for (int l = 0; l < pc.length;l++){
+                        //System.out.println("Valores de las variables: " + Arrays.toString(auxval[l]));
+                        //System.out.println(pc[l]);
+                    }
+                    listDistribuciones.add(pc);
                 }
+                //System.out.println();
             }
             //De lo contrario hace marginal de los Padres
             else {
@@ -380,20 +364,23 @@ public class Topicos_TP {
                         cardAnterior *= card[ivar];
                     }
                     for (int l = 0; l < val.length; l++) {
-                        System.out.println("Valor de la variable: " + val[l]);
+                        //System.out.println("Valor de la variable: " + val[l]);
                     }
-                    System.out.println(ProbabilidadConjuntaDiricht(listDis.get(i), val, card, alpha, ds));
+                    double[] pc = new double[1];
+                    pc[0] = ProbabilidadConjuntaDiricht(listDis.get(i), val, card, alpha, ds);
+                    //System.out.println(pc[0]);
+                    listDistribuciones.add(pc);
                 }
-                System.out.println();
+                //System.out.println();
             }
-
         }
+        return listDistribuciones;
     }
 
     public static void VisualizarDistribuciones(int[][] grafo, int[] card, int alpha, int[][] ds, char[] vn) {
         List<int[]> listDis = GeneraDistribuciones(grafo);
         int aux;
-
+        List<double[]> listDistribucionesGrafo = RealizaDistribuciones(grafo, card, alpha, ds);
         System.out.println("Distribuciones de la matriz de Adyacencia:");
         for (int i = 0; i < listDis.size(); i++) {
             for (int j = 0; j < listDis.get(i).length; j++) {
@@ -453,6 +440,19 @@ public class Topicos_TP {
         }
         System.out.println();
 
-        RealizaDistribuciones(grafo, card, alpha, ds);
+        for (int i = 0; i < listDistribucionesGrafo.size(); i++){
+            if(listDistribucionesGrafo.get(i).length == 1){
+                System.out.println("Valor de la variable: " + i);
+                System.out.println(listDistribucionesGrafo.get(i)[0]);
+            }
+            else {
+                for (int j=0;j<listDistribucionesGrafo.get(i).length;j++){
+                    System.out.println("Valores de las variables: " + j + (i-card[0]));
+                    System.out.println(listDistribucionesGrafo.get(i)[j]);
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }
