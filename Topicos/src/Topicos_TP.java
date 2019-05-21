@@ -12,7 +12,7 @@ public class Topicos_TP {
         //INPUT
         //Matriz de adyacencia de g
         int[][] g = {{0, 1},
-                {0, 0}};
+                     {0, 0}};
         //Ingresar las cardinalidades
         int[] card = {2,2};
         // Ingresar Alpha
@@ -34,8 +34,9 @@ public class Topicos_TP {
         int[] vars = {0,1};
         int[] vals = {1,1};
 
-        GetProbabilidad(vars,vals,card,distribucion);
         ConjuntaGrafo(vars,vals,card,alpha,g,dataset);
+        GetProbabilidad(vars,vals,card,distribucion);
+
 
     }
 
@@ -86,14 +87,14 @@ public class Topicos_TP {
     }
 
     public static List<int[]> ConjuntaGrafo(int[] vars, int[] vals, int[] card, int alpha, int[][]grafo, int[][]ds) {
-
+        System.out.println();
         System.out.println("Distribucion Conjunta del grafo");
         List<int[]> ConjuntaG = GeneraDistribuciones(grafo);
         List<double[]> listDistribucionesGrafo = RealizaDistribuciones(grafo, card, alpha, ds);
 
         int[] val = new int[vars.length];
         int ivar;
-        int cardAnterior = 1;
+        int cardAnterior;
         int tamfactor = 1;
 
         //  Halla el tamaño del factor
@@ -101,18 +102,35 @@ public class Topicos_TP {
             tamfactor *= card[p];
         }
 
-        for (int k = 0; k < tamfactor; k++) {
+        List<Double> b = new ArrayList<Double>();
+        List<Double> a = new ArrayList<Double>();
+        List<Double> probs = new ArrayList<Double>();
+        List<Integer> aux = new ArrayList<Integer>();
+
+        for (int l = 0; l < listDistribucionesGrafo.size(); l++){
+            if (listDistribucionesGrafo.get(l).length == 1){
+                a.add(listDistribucionesGrafo.get(l)[0]);
+            }
+            else {
+                for (int m = 0; m < listDistribucionesGrafo.get(l).length; m++){
+                    b.add(listDistribucionesGrafo.get(l)[m]);
+                }
+            }
+        }
+        for (int i = 0; i < tamfactor; i++) {
             cardAnterior = 1;
             for (int j = 0; j < vars.length; j++) {
                 ivar = vars[j];
-                val[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);
+                val[j] = (int) (Math.floor(i / cardAnterior) % card[ivar]);
                 cardAnterior *= card[ivar];
-                System.out.print(val[j]);
+                System.out.print(val[j]+ " ");
+                if (j == vars.length - 1){
+                    aux.add(val[j]);
+                }
             }
-            System.out.println();
+            probs.add(b.get(i)*a.get(aux.get(i)));
+            System.out.println(probs.get(i));
         }
-
-
         return ConjuntaG;
     }
 
@@ -453,6 +471,5 @@ public class Topicos_TP {
             }
             System.out.println();
         }
-        System.out.println();
     }
 }
