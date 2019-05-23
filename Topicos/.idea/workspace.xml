@@ -20,11 +20,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Topicos_TP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="102" column="37" lean-forward="true" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+            <state relative-caret-position="484">
+              <caret line="127" column="16" selection-start-line="127" selection-start-column="16" selection-end-line="127" selection-end-column="16" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#GetIndex#0;class#Topicos_TP#0" />
                 <element signature="method#ReadDs#0;class#Topicos_TP#0" />
                 <element signature="method#ColumnasDs#0;class#Topicos_TP#0" />
                 <element signature="method#GeneraVariables#0;class#Topicos_TP#0" />
@@ -32,9 +30,10 @@
                 <element signature="method#ProbabilidadMarginalDiricht#0;class#Topicos_TP#0" />
                 <element signature="method#ProbabilidadConjuntaDiricht#0;class#Topicos_TP#0" />
                 <element signature="method#ProbabilidadCondicionadaDiricht#0;class#Topicos_TP#0" />
+                <element signature="method#DistribucionPConjunta#0;class#Topicos_TP#0" />
                 <element signature="method#GeneraDistribuciones#0;class#Topicos_TP#0" />
                 <element signature="method#RealizaDistribuciones#0;class#Topicos_TP#0" />
-                <element signature="e#15284#17119#1" />
+                <element signature="method#VisualizarDistribuciones#0;class#Topicos_TP#0" />
               </folding>
             </state>
           </provider>
@@ -100,6 +99,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -116,8 +117,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -137,6 +136,12 @@
       <recent name="D:\Proyectos Topicos\Topicos\src" />
       <recent name="D:\Varios\Topicos" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="main" />
+      <command value="Topicos_TP" />
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -234,12 +239,13 @@
       <workItem from="1558381068905" duration="1855000" />
       <workItem from="1558551710847" duration="257000" />
       <workItem from="1558569543693" duration="6882000" />
-      <workItem from="1558587217248" duration="6631000" />
+      <workItem from="1558587217248" duration="6876000" />
+      <workItem from="1558640858258" duration="2098000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149180000" />
+    <option name="totallyTimeSpent" value="159384000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -251,10 +257,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10915105" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49769586" weight="0.113464445" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -263,16 +269,16 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Debug" order="2" visible="true" weight="0.27310488" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="5" weight="0.32872504" />
-      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="4" weight="0.32872504" />
+      <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" x="371" y="76" width="427" height="621" id="Debug" order="6" sideWeight="0.50230414" weight="0.22427036" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32872504" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.38556066" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3281412" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32718894" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -282,7 +288,7 @@
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info active="true" anchor="right" id="Run" order="9" visible="true" weight="0.33241457" />
+      <window_info active="true" anchor="right" id="Run" order="9" visible="true" weight="0.2579425" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.17063493" />
@@ -332,12 +338,58 @@
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="Application">
-        <watch expression="listDistribucionesGrafo" language="JAVA" />
+        <watch expression="a" language="JAVA" />
+        <watch expression="prob" language="JAVA" />
+        <watch expression="Listprobdist.get(j)" language="JAVA" />
+        <watch expression="Listdist.get(j)[0]" language="JAVA" />
+        <watch expression="vals" language="JAVA" />
+        <watch expression="aux" language="JAVA" />
+        <watch expression="indice" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>indice</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>aux</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>vals</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Listdist.get(j)[0]</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Listprobdist.get(j)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>prob</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>a</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>val</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>listDistribucionesGrafo</expression-string>
         <language-id>JAVA</language-id>
@@ -345,41 +397,6 @@
       </expression>
       <expression>
         <expression-string>ds[i][var[j]]</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>listDistribbuvion</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>auxarr</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>pc</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>listDistribuciones</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>marginal</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>contador</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>val[j]</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -412,11 +429,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Topicos_TP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="102" column="37" lean-forward="true" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+        <state relative-caret-position="484">
+          <caret line="127" column="16" selection-start-line="127" selection-start-column="16" selection-end-line="127" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetIndex#0;class#Topicos_TP#0" />
             <element signature="method#ReadDs#0;class#Topicos_TP#0" />
             <element signature="method#ColumnasDs#0;class#Topicos_TP#0" />
             <element signature="method#GeneraVariables#0;class#Topicos_TP#0" />
@@ -424,9 +439,10 @@
             <element signature="method#ProbabilidadMarginalDiricht#0;class#Topicos_TP#0" />
             <element signature="method#ProbabilidadConjuntaDiricht#0;class#Topicos_TP#0" />
             <element signature="method#ProbabilidadCondicionadaDiricht#0;class#Topicos_TP#0" />
+            <element signature="method#DistribucionPConjunta#0;class#Topicos_TP#0" />
             <element signature="method#GeneraDistribuciones#0;class#Topicos_TP#0" />
             <element signature="method#RealizaDistribuciones#0;class#Topicos_TP#0" />
-            <element signature="e#15284#17119#1" />
+            <element signature="method#VisualizarDistribuciones#0;class#Topicos_TP#0" />
           </folding>
         </state>
       </provider>

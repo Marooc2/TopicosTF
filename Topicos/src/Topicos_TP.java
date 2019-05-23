@@ -34,7 +34,7 @@ public class Topicos_TP {
         System.out.println("Distribucion Conjunta: ");
         List<Double> distribucion = DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
 
-        GetProbabilidad(vars,vals,card,distribucion);
+        //GetProbabilidad(vars,vals,card,distribucion);
         ConjuntaGrafo(vars,vals,card,alpha,g,dataset);
     }
 
@@ -43,12 +43,12 @@ public class Topicos_TP {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static int GetIndex(int[] valor, int[] cardinalidad){
         int index = 0;
-        int[] aux = new int[cardinalidad.length+1];
+        int[] aux = new int[cardinalidad.length];
         aux[0] = 1;
-        for (int i=1;i<aux.length;i++){
-            aux[i] = aux[i-1]*cardinalidad[i-1];
+        for (int i=0;i<cardinalidad.length-1;i++){
+            aux[i+1] = aux[i]*cardinalidad[i];
         }
-        for (int j=0;j<cardinalidad.length;j++){
+        for (int j=0;j<valor.length;j++){
             index += valor[j]* aux[j];
         }
         return index;
@@ -62,55 +62,71 @@ public class Topicos_TP {
             ivar = variable[j];
             valores[j] = (int) (Math.floor(index / cardAnterior) % cardinalidad[ivar]);
             cardAnterior *= cardinalidad[ivar];
-            System.out.print(valores[j]);
+            //System.out.print(valores[j]);
         }
-        System.out.print(" =");
+        //System.out.print(" =");
         return valores;
     }
 
-    public static double GetProbabilidad(int[] vars, int[] vals, int[] card, List<Double> dist){
+    public static double GetProbabilidad(int[] vars, int[] vals, int[] card, double[] dist){
         double prob = 0.0;
         int ind;
 
         ind = GetIndex(vals,card);
-        System.out.println();
-        System.out.println("Indice: " + ind);
-        GetPosList(vars,card,ind);
-        for (int i=0;i<dist.size();i++){
+        //GetPosList(vars,card,ind);
+
+        for (int i=0;i<dist.length;i++){
             if(i == ind){
-                prob = dist.get(ind);
-                System.out.print(" " + prob);
+                prob = dist[ind];
+                //System.out.print(" " + prob);
             }
         }
         System.out.println();
         return prob;
     }
 
-    public static List<double[]> ConjuntaGrafo(int[] vars, int[] vals, int[] card, int alpha, int[][]grafo, int[][]ds) {
+    public static List<Double> ConjuntaGrafo(int[] vars, int[] vals, int[] card, int alpha, int[][]grafo, int[][]ds) {
         System.out.println();
         System.out.println("Distribucion Conjunta del grafo:");
-        List<double[]> ConjuntaG = new ArrayList<>();
+        List<Double> ConjuntaG = new ArrayList<>();
         List<int[]> Listdist = GeneraDistribuciones(grafo);
-        List<double[]> Listadeprobdist = RealizaDistribuciones(grafo, card, alpha, ds);
-        double a;
+        List<double[]> Listprobdist = RealizaDistribuciones(grafo, card, alpha, ds);
         int tamfactor = 1;
 
-
-        for (int i = 0; i < Listdist.size(); i++){
-            int[] auxarr = Listdist.get(i);
-
-            for (int k = 0; k < auxarr.length ; k++){
-                tamfactor *= card[auxarr[k]];
-            }
-
-            for (int j = 0; j < Listadeprobdist.get(i).length; j++){
-                if (Listdist.get(i).length > 1){
-                }
-                else {
-                }
-            }
+        for (int p = 0; p < Listdist.size(); p++) {
+            tamfactor *= card[p];
         }
+        int[] val = new int[card.length];
+        int ivar;
+        int cardAnterior;
 
+        for (int k = 0; k < tamfactor; k++) {
+            cardAnterior = 1;
+                for (int j = 0; j < vars.length; j++) {
+                    ivar = vars[j];
+                    val[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);
+                    cardAnterior *= card[ivar];
+                }
+                double prob = 1.0;
+                double a;
+                for (int j = 0; j < Listdist.size(); j++){
+                    if (Listdist.get(j).length > 1){
+                        int[] aux = new int[Listdist.get(j).length];
+                        for (int l = 0; l < aux.length; l++){
+                            aux[l] = val[Listdist.get(j)[l]];
+                        }
+                        int indice = GetIndex(aux,card);
+                        a = Listprobdist.get(j)[indice];
+
+                    }
+                    else {
+                     a = Listprobdist.get(j)[val[Listdist.get(j)[0]]];
+                    }
+                    prob *= a;
+                }
+                //System.out.println(prob);
+                ConjuntaG.add(prob);
+            }
         return ConjuntaG;
     }
 
@@ -249,7 +265,7 @@ public class Topicos_TP {
     public static List<Double> DistribucionPConjunta(int[] var, int[] card, int alpha, int[][] ds) {
         int[] val = new int[var.length];
         int ivar;
-        int cardAnterior = 1;
+        int cardAnterior;
         int tamfactor = 1;
         double suma = 0.0;
         List<Double> Distribuciones = new ArrayList<Double>();
