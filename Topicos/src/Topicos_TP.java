@@ -1,5 +1,4 @@
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -32,10 +31,15 @@ public class Topicos_TP {
         int[] vars = {0,1,2};
         int[] vals = {1,1,1};
         System.out.println("Distribucion Conjunta: ");
-        List<Double> distribucion = DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
-
-        //GetProbabilidad(vars,vals,card,distribucion);
-        ConjuntaGrafo(vars,vals,card,alpha,g,dataset);
+        List<Double> Listadistribucion = DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
+        double[] distribucion = new double[Listadistribucion.size()];
+        for (int i = 0; i<Listadistribucion.size();i++)
+            distribucion[i] = Listadistribucion.get(i);
+        GetProbabilidad(vars,vals,card,distribucion);
+        //ConjuntaGrafo(vars,vals,card,alpha,g,dataset);
+        int[] valsEvidencia = {1,2};
+        int inferencia = Inferencia(vars,vals,valsEvidencia,card,alpha,g,dataset);
+        System.out.println(inferencia);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,6 +62,7 @@ public class Topicos_TP {
         int ivar;
         int cardAnterior = 1;
         int[] valores = new int[cardinalidad.length];
+
         for (int j = 0; j < variable.length; j++) {
             ivar = variable[j];
             valores[j] = (int) (Math.floor(index / cardAnterior) % cardinalidad[ivar]);
@@ -106,7 +111,9 @@ public class Topicos_TP {
                     ivar = vars[j];
                     val[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);
                     cardAnterior *= card[ivar];
+                    System.out.print(val[j]);
                 }
+                System.out.print(" = ");
                 double prob = 1.0;
                 double a;
                 for (int j = 0; j < Listdist.size(); j++){
@@ -124,10 +131,43 @@ public class Topicos_TP {
                     }
                     prob *= a;
                 }
-                //System.out.println(prob);
+                System.out.print(prob);
+                System.out.println();
                 ConjuntaG.add(prob);
             }
+        System.out.println();
         return ConjuntaG;
+    }
+
+    public static int Inferencia (int[] vars,int[]vals, int [] valsE, int[] card, int alpha, int[][]g,int[][] dataset){
+
+        List<Double> ConjuntaG = ConjuntaGrafo(vars,vals,card,alpha,g,dataset);
+
+        int[] varevidencia = Arrays.copyOfRange(vars,0,vars.length-1);
+        int varconsulta = vars[vars.length-1];
+        int []auxval = new int[vars.length];
+        System.arraycopy(valsE,0,auxval,0,varevidencia.length);
+        int indice;
+        double[] prob = new double[card[varconsulta]];
+
+        for (int i=0; i<card[varconsulta]; i++){
+            auxval[card[varconsulta]] = i;
+            indice = GetIndex(auxval,card);
+
+            for (int j = 0; j < ConjuntaG.size(); j++){
+                if (j == indice){
+                    prob[i] = ConjuntaG.get(j);
+                }
+            }
+        }
+        double max = Arrays.stream(prob).max().getAsDouble();
+        int pos = 0;
+
+        for (int k = 0; k < prob.length; k++){
+            if (max == prob[k])
+                pos = k;
+        }
+        return pos;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -357,7 +397,7 @@ public class Topicos_TP {
             else {
                 int[] val = new int[listDis.get(i).length];
                 int ivar;
-                int cardAnterior = 1;
+                int cardAnterior;
                 int tamfactor = 1;
 
                 //  Halla el tamaño del factor
@@ -446,10 +486,6 @@ public class Topicos_TP {
         }
         System.out.println();
 
-        int ols = 0;
-        int ols2 = 0;
-        boolean flag;
-
         for (int i = 0; i < listDis.size(); i++){
             if(listDis.get(i).length <= 1){
                 for (int j = 0; j < listDistribucionesGrafo.get(i).length; j++){
@@ -459,7 +495,7 @@ public class Topicos_TP {
             }
             else {
                 for (int j=0;j<listDistribucionesGrafo.get(i).length;j++){
-                    System.out.println("Valor de las variables ");
+                    System.out.println("Valor de las variables uwu");
                     System.out.println(listDistribucionesGrafo.get(i)[j]);
                 }
             }
