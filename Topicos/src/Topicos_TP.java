@@ -30,16 +30,20 @@ public class Topicos_TP {
         int[] variablesConjunta = {0,1,2};
         int[] vars = {0,1,2};
         int[] vals = {1,1,1};
+
         System.out.println("Distribucion Conjunta: ");
         List<Double> Listadistribucion = DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
-        double[] distribucion = new double[Listadistribucion.size()];
-        for (int i = 0; i<Listadistribucion.size();i++)
-            distribucion[i] = Listadistribucion.get(i);
-        GetProbabilidad(vars,vals,card,distribucion);
-        //ConjuntaGrafo(vars,vals,card,alpha,g,dataset);
+        //double[] distribucion = new double[Listadistribucion.size()];
+        //for (int i = 0; i<Listadistribucion.size();i++)
+        //    distribucion[i] = Listadistribucion.get(i);
+        //GetProbabilidad(vars,vals,card,distribucion);
+
+        ConjuntaGrafo(vars,card,alpha,g,dataset);
         int[] valsEvidencia = {1,2};
-        int inferencia = Inferencia(vars,vals,valsEvidencia,card,alpha,g,dataset);
-        System.out.println(inferencia);
+
+        //int inferencia = Inferencia(vars,vals,valsEvidencia,card,alpha,g,dataset);
+        MatrizDeConfusion(vars,card,alpha,g,dataset);
+
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,9 +94,9 @@ public class Topicos_TP {
         return prob;
     }
 
-    public static List<Double> ConjuntaGrafo(int[] vars, int[] vals, int[] card, int alpha, int[][]grafo, int[][]ds) {
-        System.out.println();
-        System.out.println("Distribucion Conjunta del grafo:");
+    public static List<Double> ConjuntaGrafo(int[] vars, int[] card, int alpha, int[][]grafo, int[][]ds) {
+        //System.out.println();
+        //System.out.println("Distribucion Conjunta del grafo:");
         List<Double> ConjuntaG = new ArrayList<>();
         List<int[]> Listdist = GeneraDistribuciones(grafo);
         List<double[]> Listprobdist = RealizaDistribuciones(grafo, card, alpha, ds);
@@ -111,9 +115,9 @@ public class Topicos_TP {
                     ivar = vars[j];
                     val[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);
                     cardAnterior *= card[ivar];
-                    System.out.print(val[j]);
+                    //System.out.print(val[j]);
                 }
-                System.out.print(" = ");
+                //System.out.print(" = ");
                 double prob = 1.0;
                 double a;
                 for (int j = 0; j < Listdist.size(); j++){
@@ -131,17 +135,17 @@ public class Topicos_TP {
                     }
                     prob *= a;
                 }
-                System.out.print(prob);
-                System.out.println();
+                //System.out.print(prob);
+                //System.out.println();
                 ConjuntaG.add(prob);
             }
-        System.out.println();
+        //System.out.println();
         return ConjuntaG;
     }
 
-    public static int Inferencia (int[] vars,int[]vals, int [] valsE, int[] card, int alpha, int[][]g,int[][] dataset){
+    public static int Inferencia (int[] vars, int [] valsE, int[] card, int alpha, int[][]g,int[][] dataset){
 
-        List<Double> ConjuntaG = ConjuntaGrafo(vars,vals,card,alpha,g,dataset);
+        List<Double> ConjuntaG = ConjuntaGrafo(vars,card,alpha,g,dataset);
 
         int[] varevidencia = Arrays.copyOfRange(vars,0,vars.length-1);
         int varconsulta = vars[vars.length-1];
@@ -149,6 +153,7 @@ public class Topicos_TP {
         System.arraycopy(valsE,0,auxval,0,varevidencia.length);
         int indice;
         double[] prob = new double[card[varconsulta]];
+        int pos = 0;
 
         for (int i=0; i<card[varconsulta]; i++){
             auxval[card[varconsulta]] = i;
@@ -161,13 +166,74 @@ public class Topicos_TP {
             }
         }
         double max = Arrays.stream(prob).max().getAsDouble();
-        int pos = 0;
 
         for (int k = 0; k < prob.length; k++){
             if (max == prob[k])
                 pos = k;
         }
         return pos;
+    }
+
+    public static double[] MatrizDeConfusion (int[] vars, int[] card, int alpha, int[][]g,int[][] dataset){
+
+        double[] matriz = new double[vars.length];
+        int[] arrval = new int[vars.length - 1];
+        int[] arrclase = new int[dataset.length];
+        int[] inf = new int[dataset.length];
+        double[] tp = new double[card[vars.length - 1]];
+        double[] fp = new double[card[vars.length - 1]];
+        double[] precision = new double[tp.length];
+        double accuracy = 0.0;
+
+        for (int i = 0; i < dataset.length; i++){
+            for (int j = 0; j < dataset[i].length - 1; j++){
+                arrval[j] = dataset[i][j];
+            }
+            inf[i] = Inferencia(vars,arrval,card,alpha,g,dataset);
+        }
+        int[] auxarr = new int[card[vars.length - 1]];
+        for (int p = 0; p < card[vars.length - 1]; p++){
+            auxarr[p] = p;
+        }
+
+        for (int i = 0; i < dataset.length; i++){
+            arrclase[i] = dataset[i][dataset[i].length - 1];
+        }
+
+        for (int i = 0; i < auxarr.length;i++){
+            int truep = 0;
+            int falsep = 0;
+
+            for (int j = 0; j < arrclase.length; j++){
+                if (arrclase[j] == i){
+                    if (arrclase[j] == inf[j]){
+                        truep++;
+                    }
+                    else {
+                        falsep++;
+                    }
+                }
+            }
+            tp[i]=truep;
+            fp[i]=falsep;
+        }
+
+        double auxtp = 0.0;
+        double auxtodo = 0.0;
+
+        for (int i = 0; i< precision.length; i++){
+            double aux = tp[i]/(tp[i]+fp[i]);
+            precision[i] = aux;
+            auxtp += tp[i];
+            auxtodo += tp[i]+fp[i];
+        }
+
+        accuracy = auxtp/auxtodo;
+        System.arraycopy(precision,0,matriz,0,precision.length);
+        matriz[matriz.length - 1] = accuracy;
+
+        System.out.println(Arrays.toString(matriz));
+        return matriz;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
