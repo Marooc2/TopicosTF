@@ -1,10 +1,11 @@
 package Funciones;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class F_visualizacion {
 
-    public static void VisualizarDistribuciones(int[][] grafo, int[] card, int alpha, int[][] ds, char[] vn) {
+    public static void VisualizarDistribuciones(int[][] grafo,int [] vars, int[] card, int alpha, int[][] ds, char[] vn) {
         List<int[]> listDis = F_distribuciones.GeneraDistribuciones(grafo);
         List<double[]> listDistribucionesGrafo = F_distribuciones.RealizaDistribuciones(grafo, card, alpha, ds);
 
@@ -67,23 +68,48 @@ public class F_visualizacion {
             System.out.println();
         }
         System.out.println();
-
+        System.out.println("Distribuciones");
+        System.out.println();
         for (int i = 0; i < listDis.size(); i++){
-            if(listDis.get(i).length <= 1){
-                for (int j = 0; j < listDistribucionesGrafo.get(i).length; j++){
-                    System.out.println("Valor de la variable: " + j);
-                    System.out.println(listDistribucionesGrafo.get(i)[j]);
+            int[] val = new int[listDis.get(i).length];
+            int ivar;
+            int cardAnterior;
+            int tamfactor = 1;
+            double[] auxprob = listDistribucionesGrafo.get(i);
+
+            if(listDis.get(i).length > 1){
+                for (int p = 0; p < listDis.get(i).length; p++) {
+                    tamfactor *= card[listDis.get(i)[p]];
+                }
+                System.out.println("Distribucion de " + listDis.get(i)[0]);
+                for (int k = 0; k < tamfactor; k++) {
+                    cardAnterior = 1;
+                    for (int j = 0; j < listDis.get(i).length; j++) {
+                        ivar = vars[listDis.get(i)[j]];
+                        val[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);
+                        cardAnterior *= card[ivar];
+                        System.out.print(val[j]);
+                    }
+                    System.out.println(" = " +auxprob[k]);
                 }
             }
             else {
-                for (int j=0;j<listDistribucionesGrafo.get(i).length;j++){
-                    System.out.println("Valor de las variables uwu");
-                    System.out.println(listDistribucionesGrafo.get(i)[j]);
+                tamfactor = card[listDis.get(i)[0]];
+
+                System.out.println("Distribucion de " + listDis.get(i)[0]);
+                for (int k = 0; k < tamfactor; k++) {
+                    cardAnterior = 1;
+                    for (int j = 0; j < listDis.get(i).length; j++) {
+                        ivar = vars[listDis.get(i)[j]];
+                        val[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);
+                        cardAnterior *= card[ivar];
+                        System.out.print(val[j]);
+                    }
+                    System.out.println(" = " + auxprob[k]);
                 }
             }
             System.out.println();
         }
-
 
     }
 

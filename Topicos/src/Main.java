@@ -10,44 +10,38 @@ public class Main {
         //INPUT
         //Matriz de adyacencia de g
         int[][] g = {{0, 0, 1},
-                {0, 0, 0},
-                {0, 0, 0}};
+                    {0, 0, 0},
+                    {0, 0, 0}};
         //Ingresar las cardinalidades
         int[] card = {2,3,2};
         // Ingresar Alpha
         int alpha = 1;
         //Lectura del dataset // INGRESAR NOMBRE DE ARCHIVO
-        int[][] dataset = F_herramientas.ReadDs("data4.txt");
+        int[][] dataset = F_herramientas.ReadDs("ds/data4.txt");
         int columnas = F_herramientas.ColumnasDs(dataset);
         //Transformar la vista de las distribuciones de numeros a letras
         char[] varnames = new char[columnas];
         varnames = F_herramientas.GeneraVariables(varnames);
+        int[] vars = {0,1,2};
         //Realiza las distribuciones del grafo e imprime
-        F_visualizacion.VisualizarDistribuciones(g, card, alpha, dataset, varnames);
-
+        F_visualizacion.VisualizarDistribuciones(g, vars,card, alpha, dataset, varnames);
         //INGRESAR VARIABLES PARA HALLAR LA DISTRIBUCION CONJUNTA DEL DATASET
         int[] variablesConjunta = {0,1,2};
-        int[] vars = {0,1,2};
-        //int[] vals = {1,1,1};
 
         System.out.println("Distribucion Conjunta: ");
-        List<Double> Listadistribucion = F_distribuciones.DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
-        //double[] distribucion = new double[Listadistribucion.size()];
-        //for (int i = 0; i<Listadistribucion.size();i++)
-        //    distribucion[i] = Listadistribucion.get(i);
-        //GetProbabilidad(vars,vals,card,distribucion);
+        F_distribuciones.DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
 
         ConjuntaGrafo(vars,card,alpha,g,dataset);
         int[] valsEvidencia = {1,2};
 
-        //int inferencia = Inferencia(vars,vals,valsEvidencia,card,alpha,g,dataset);
+        int inferencia = Inferencia(vars,valsEvidencia,card,alpha,g,dataset);
+        System.out.println();
+        System.out.println("Inferencia cuando " + Arrays.toString(valsEvidencia)+": "+inferencia);
+
         MatrizDeConfusion(vars,card,alpha,g,dataset);
 
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //CLASIFICAR
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static int GetIndex(int[] valor, int[] cardinalidad){
         int index = 0;
         int[] aux = new int[cardinalidad.length];
@@ -174,7 +168,7 @@ public class Main {
     }
 
     public static double[] MatrizDeConfusion (int[] vars, int[] card, int alpha, int[][]g,int[][] dataset){
-
+        System.out.println();
         double[] matriz = new double[vars.length];
         int[] arrval = new int[vars.length - 1];
         int[] arrclase = new int[dataset.length];
@@ -182,7 +176,7 @@ public class Main {
         double[] tp = new double[card[vars.length - 1]];
         double[] fp = new double[card[vars.length - 1]];
         double[] precision = new double[tp.length];
-        double accuracy = 0.0;
+        double accuracy;
 
         for (int i = 0; i < dataset.length; i++){
             for (int j = 0; j < dataset[i].length - 1; j++){
@@ -190,7 +184,18 @@ public class Main {
             }
             inf[i] = Inferencia(vars,arrval,card,alpha,g,dataset);
         }
+
+        System.out.println("Inferencia ");
+        for (int i = 0; i < dataset.length; i++){
+            for (int j = 0; j < dataset[i].length; j++){
+                System.out.print(dataset[i][j]);
+            }
+            System.out.print(" " + inf[i]);
+            System.out.println();
+        }
+
         int[] auxarr = new int[card[vars.length - 1]];
+
         for (int p = 0; p < card[vars.length - 1]; p++){
             auxarr[p] = p;
         }
@@ -220,36 +225,22 @@ public class Main {
         double auxtp = 0.0;
         double auxtodo = 0.0;
 
+        System.out.println();
+
         for (int i = 0; i< precision.length; i++){
             double aux = tp[i]/(tp[i]+fp[i]);
             precision[i] = aux;
+            System.out.println("Precision de Clase en " + i + " = " + precision[i]);
             auxtp += tp[i];
             auxtodo += tp[i]+fp[i];
         }
-
         accuracy = auxtp/auxtodo;
+        System.out.println("Accuracy de todo = " + accuracy);
         System.arraycopy(precision,0,matriz,0,precision.length);
         matriz[matriz.length - 1] = accuracy;
 
+
         return matriz;
     }
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //HERRAMIENTAS
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //PROBABILIDADES
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //DISTRIBUCIONES
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //VISUALIZACION
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
