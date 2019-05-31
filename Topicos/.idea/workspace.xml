@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf654be4-917f-4cb0-961f-d165e0015e4a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Funciones/F_distribuciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Funciones/F_distribuciones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Funciones/F_visualizacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Funciones/F_visualizacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -21,16 +19,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Funciones/F_visualizacion.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="121" selection-start-line="7" selection-start-column="121" selection-end-line="7" selection-end-column="121" />
+            <state relative-caret-position="399">
+              <caret line="204" column="113" selection-start-line="204" selection-start-column="113" selection-end-line="204" selection-end-column="113" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#VisualizarDistribuciones#0;class#F_visualizacion#0" />
-                <element signature="e#495#2330#1" />
-                <element signature="e#2444#3421#1" />
+                <element signature="method#GetProbabilidad#0;class#Main#0" />
+                <element signature="e#4370#4699#1" />
+                <element signature="e#4493#4574#1" />
+                <element signature="method#ConjuntaGrafo#1;class#Main#0" />
+                <element signature="method#Inferencia#0;class#Main#0" />
+                <element signature="method#MatrizDeConfusion#0;class#Main#0" />
+                <element signature="method#CrossValidation#0;class#Main#0" />
               </folding>
             </state>
           </provider>
@@ -39,29 +40,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Funciones/F_distribuciones.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="103" column="8" selection-start-line="103" selection-start-column="8" selection-end-line="105" selection-end-column="9" />
+            <state relative-caret-position="278">
+              <caret line="118" column="41" selection-start-line="118" selection-start-column="39" selection-end-line="118" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#RealizaDistribuciones#0;class#F_distribuciones#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Funciones/F_probabilidades.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="36" column="50" lean-forward="true" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+            <state relative-caret-position="317">
+              <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+              <folding>
+                <element signature="method#ProbabilidadMarginalDiricht#0;class#F_probabilidades#0" />
+                <element signature="method#ProbabilidadConjuntaDiricht#0;class#F_probabilidades#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Funciones/F_visualizacion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="90" column="51" lean-forward="true" selection-start-line="90" selection-start-column="51" selection-end-line="90" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#GetIndex#0;class#Topicos_TP#0" />
-                <element signature="method#GetPosList#0;class#Topicos_TP#0" />
-                <element signature="method#GetProbabilidad#0;class#Topicos_TP#0" />
-                <element signature="method#ConjuntaGrafo#0;class#Topicos_TP#0" />
-                <element signature="method#Inferencia#0;class#Topicos_TP#0" />
-                <element signature="method#MatrizDeConfusion#0;class#Topicos_TP#0" />
+                <element signature="e#556#2391#1" />
               </folding>
             </state>
           </provider>
@@ -98,6 +106,8 @@
       <find>valor de la variable</find>
       <find>distribucion</find>
       <find>System.out.println</find>
+      <find>distribucion conjunta</find>
+      <find>Inferencia</find>
     </findStrings>
     <replaceStrings>
       <replace>q</replace>
@@ -121,8 +131,8 @@
         <option value="$PROJECT_DIR$/src/Funciones/F_herramientas.java" />
         <option value="$PROJECT_DIR$/src/Funciones/F_probabilidades.java" />
         <option value="$PROJECT_DIR$/src/Topicos_TP.java" />
-        <option value="$PROJECT_DIR$/src/Funciones/F_distribuciones.java" />
         <option value="$PROJECT_DIR$/src/Funciones/F_visualizacion.java" />
+        <option value="$PROJECT_DIR$/src/Funciones/F_distribuciones.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
@@ -153,6 +163,11 @@
             <path>
               <item name="Topicos" type="b2602c69:ProjectViewProjectNode" />
               <item name="Topicos" type="462c0819:PsiDirectoryNode" />
+              <item name="ds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Topicos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Topicos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -177,7 +192,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -291,11 +306,18 @@
       <workItem from="1558569543693" duration="6882000" />
       <workItem from="1558587217248" duration="6876000" />
       <workItem from="1558640858258" duration="35669000" />
+      <workItem from="1558714531146" duration="322000" />
+      <workItem from="1558935417157" duration="497000" />
+      <workItem from="1558989238262" duration="146000" />
+      <workItem from="1559015399793" duration="2297000" />
+      <workItem from="1559022618737" duration="148000" />
+      <workItem from="1559186583982" duration="6600000" />
+      <workItem from="1559247635507" duration="13357000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192955000" />
+    <option name="totallyTimeSpent" value="216322000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -310,7 +332,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49769586" weight="0.113464445" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49769586" weight="0.11875945" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -321,14 +343,14 @@
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Cvs" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="4" weight="0.32872504" />
+      <window_info anchor="bottom" id="TODO" order="4" weight="0.32718894" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" x="371" y="76" width="427" height="621" id="Debug" order="6" sideWeight="0.50230414" weight="0.31490016" />
+      <window_info anchor="bottom" x="371" y="76" width="427" height="621" id="Debug" order="6" sideWeight="0.50230414" weight="0.40399384" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32872504" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.38556066" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3852544" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32718894" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3271028" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -338,7 +360,7 @@
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Run" order="9" weight="0.40015128" />
+      <window_info anchor="right" id="Run" order="9" weight="0.33963692" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.17063493" />
@@ -386,42 +408,48 @@
     </option>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Funciones/F_probabilidades.java</url>
+          <line>44</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>228</line>
+          <properties />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="tamfactor" language="JAVA" />
-        <watch expression="val" language="JAVA" />
+        <watch expression="prob" language="JAVA" />
+        <watch expression="auxvalds" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>val</expression-string>
+        <expression-string>auxvalds</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>tamfactor</expression-string>
+        <expression-string>prob</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>aux</expression-string>
+        <expression-string>valsE</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>precision</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>fp</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>tp</expression-string>
+        <expression-string>arrval</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -431,17 +459,22 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>vals</expression-string>
+        <expression-string>auxval</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Listdist.get(j)[0]</expression-string>
+        <expression-string>varconsulta</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Listprobdist.get(j)</expression-string>
+        <expression-string>varevidencia</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>auxprob</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -465,38 +498,10 @@
     <entry file="file://E:/Topicos/TB2/RateDSCorregidos/src/RateDSCorregidos.java" />
     <entry file="file://$PROJECT_DIR$/archivo.txt" />
     <entry file="file://$PROJECT_DIR$/data2.txt" />
-    <entry file="file://$PROJECT_DIR$/data.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data4.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Funciones/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Topicos_TP.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Funciones/F_probabilidades.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="76" column="5" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-          <folding>
-            <element signature="method#ProbabilidadMarginalDiricht#0;class#F_probabilidades#0" />
-            <element signature="method#ProbabilidadConjuntaDiricht#0;class#F_probabilidades#0" />
-            <element signature="method#ProbabilidadCondicionadaDiricht#0;class#F_probabilidades#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data.txt" />
+    <entry file="file://$PROJECT_DIR$/data4.txt" />
+    <entry file="file://$PROJECT_DIR$/src/Funciones/main.java" />
+    <entry file="file://$PROJECT_DIR$/src/Topicos_TP.java" />
     <entry file="file://$PROJECT_DIR$/src/Funciones/F_herramientas.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -510,42 +515,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Funciones/F_distribuciones.java">
+    <entry file="file://$PROJECT_DIR$/src/Funciones/CrossValidation.java" />
+    <entry file="file://$PROJECT_DIR$/src/Funciones/F_probabilidades.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="103" column="8" selection-start-line="103" selection-start-column="8" selection-end-line="105" selection-end-column="9" />
+        <state relative-caret-position="317">
+          <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#RealizaDistribuciones#0;class#F_distribuciones#0" />
+            <element signature="method#ProbabilidadMarginalDiricht#0;class#F_probabilidades#0" />
+            <element signature="method#ProbabilidadConjuntaDiricht#0;class#F_probabilidades#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Funciones/F_visualizacion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="121" selection-start-line="7" selection-start-column="121" selection-end-line="7" selection-end-column="121" />
+        <state relative-caret-position="550">
+          <caret line="90" column="51" lean-forward="true" selection-start-line="90" selection-start-column="51" selection-end-line="90" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#VisualizarDistribuciones#0;class#F_visualizacion#0" />
-            <element signature="e#495#2330#1" />
-            <element signature="e#2444#3421#1" />
+            <element signature="e#556#2391#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Funciones/F_distribuciones.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="118" column="41" selection-start-line="118" selection-start-column="39" selection-end-line="118" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="36" column="50" lean-forward="true" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+        <state relative-caret-position="399">
+          <caret line="204" column="113" selection-start-line="204" selection-start-column="113" selection-end-line="204" selection-end-column="113" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetIndex#0;class#Topicos_TP#0" />
-            <element signature="method#GetPosList#0;class#Topicos_TP#0" />
-            <element signature="method#GetProbabilidad#0;class#Topicos_TP#0" />
-            <element signature="method#ConjuntaGrafo#0;class#Topicos_TP#0" />
-            <element signature="method#Inferencia#0;class#Topicos_TP#0" />
-            <element signature="method#MatrizDeConfusion#0;class#Topicos_TP#0" />
+            <element signature="method#GetProbabilidad#0;class#Main#0" />
+            <element signature="e#4370#4699#1" />
+            <element signature="e#4493#4574#1" />
+            <element signature="method#ConjuntaGrafo#1;class#Main#0" />
+            <element signature="method#Inferencia#0;class#Main#0" />
+            <element signature="method#MatrizDeConfusion#0;class#Main#0" />
+            <element signature="method#CrossValidation#0;class#Main#0" />
           </folding>
         </state>
       </provider>

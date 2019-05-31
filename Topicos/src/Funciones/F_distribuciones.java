@@ -58,7 +58,7 @@ public class F_distribuciones {
 
                     double[] pc = F_probabilidades.ProbabilidadCondicionadaDiricht(listDis.get(i), auxval, card, alpha, ds);
                     System.arraycopy(pc,0,auxarr,pos,pc.length);
-                    pos = pc.length;
+                    pos += pc.length;
                 }
                 listDistribuciones.add(auxarr);
             }
@@ -107,6 +107,7 @@ public class F_distribuciones {
 
         for (int k = 0; k < tamfactor; k++) {
             cardAnterior = 1;
+            System.out.print(k + " ");
             for (int j = 0; j < var.length; j++) {
                 ivar = var[j];
                 val[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);

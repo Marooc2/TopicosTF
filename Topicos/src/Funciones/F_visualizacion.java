@@ -81,6 +81,7 @@ public class F_visualizacion {
                 for (int p = 0; p < listDis.get(i).length; p++) {
                     tamfactor *= card[listDis.get(i)[p]];
                 }
+
                 System.out.println("Distribucion de " + listDis.get(i)[0]);
                 for (int k = 0; k < tamfactor; k++) {
                     cardAnterior = 1;

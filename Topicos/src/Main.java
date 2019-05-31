@@ -9,37 +9,44 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         //INPUT
         //Matriz de adyacencia de g
-        int[][] g = {{0, 0, 1},
-                    {0, 0, 0},
-                    {0, 0, 0}};
+        int[][] g = {
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 1, 0},
+                {0, 0, 0, 1, 0},
+                {0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 0},
+        };
         //Ingresar las cardinalidades
-        int[] card = {2,3,2};
+        int[] card = {3,3,4,2,3};
         // Ingresar Alpha
         int alpha = 1;
         //Lectura del dataset // INGRESAR NOMBRE DE ARCHIVO
-        int[][] dataset = F_herramientas.ReadDs("ds/data4.txt");
+        int[][] dataset = F_herramientas.ReadDs("ds/dataset.txt");
         int columnas = F_herramientas.ColumnasDs(dataset);
         //Transformar la vista de las distribuciones de numeros a letras
         char[] varnames = new char[columnas];
         varnames = F_herramientas.GeneraVariables(varnames);
-        int[] vars = {0,1,2};
+        int[] vars = {0,1,2,3,4};
         //Realiza las distribuciones del grafo e imprime
         F_visualizacion.VisualizarDistribuciones(g, vars,card, alpha, dataset, varnames);
         //INGRESAR VARIABLES PARA HALLAR LA DISTRIBUCION CONJUNTA DEL DATASET
-        int[] variablesConjunta = {0,1,2};
+        int[] variablesConjunta = {0,1,2,3,4};
 
-        System.out.println("Distribucion Conjunta: ");
-        F_distribuciones.DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
+        //System.out.println("Distribucion Conjunta: ");
+        //F_distribuciones.DistribucionPConjunta(variablesConjunta, card, alpha, dataset);
 
-        ConjuntaGrafo(vars,card,alpha,g,dataset);
-        int[] valsEvidencia = {1,2};
+        ConjuntaGrafo2(vars,card,alpha,g,dataset);
 
-        int inferencia = Inferencia(vars,valsEvidencia,card,alpha,g,dataset);
-        System.out.println();
-        System.out.println("Inferencia cuando " + Arrays.toString(valsEvidencia)+": "+inferencia);
+        //int[] valsEvidencia = {1,2,3,1};
+
+        //double[] inferencia = Inferencia(vars,valsEvidencia,card,alpha,g,dataset);
+        //System.out.println();
+        //System.out.println("Inferencia de clase cuando " + Arrays.toString(valsEvidencia)+": "
+        //        + (int) inferencia[0] + " con la probabilidad de: " + String.format("%.5f",inferencia[1]));
 
         MatrizDeConfusion(vars,card,alpha,g,dataset);
-
+        int pliegues = 10;
+        //CrossValidation(dataset, pliegues);
     }
 
     public static int GetIndex(int[] valor, int[] cardinalidad){
@@ -90,6 +97,7 @@ public class Main {
     public static List<Double> ConjuntaGrafo(int[] vars, int[] card, int alpha, int[][]grafo, int[][]ds) {
         //System.out.println();
         //System.out.println("Distribucion Conjunta del grafo:");
+
         List<Double> ConjuntaG = new ArrayList<>();
         List<int[]> Listdist = F_distribuciones.GeneraDistribuciones(grafo);
         List<double[]> Listprobdist = F_distribuciones.RealizaDistribuciones(grafo, card, alpha, ds);
@@ -119,9 +127,13 @@ public class Main {
                     for (int l = 0; l < aux.length; l++){
                         aux[l] = val[Listdist.get(j)[l]];
                     }
-                    int indice = GetIndex(aux,card);
-                    a = Listprobdist.get(j)[indice];
+                    int[] auxcard = new int[Listdist.get(j).length];
 
+                    for (int n = 0; n < Listdist.get(j).length; n++)
+                        auxcard[n] = card[Listdist.get(j)[n]];
+
+                    int indice = GetIndex(aux,auxcard);
+                    a = Listprobdist.get(j)[indice];
                 }
                 else {
                     a = Listprobdist.get(j)[val[Listdist.get(j)[0]]];
@@ -136,21 +148,77 @@ public class Main {
         return ConjuntaG;
     }
 
-    public static int Inferencia (int[] vars, int [] valsE, int[] card, int alpha, int[][]g,int[][] dataset){
+    public static List<Double> ConjuntaGrafo2(int[] vars, int[] card, int alpha, int[][]grafo, int[][]ds) {
+        System.out.println();
+        System.out.println("Distribucion Conjunta del grafo:");
+
+        List<Double> ConjuntaG = new ArrayList<>();
+        List<int[]> Listdist = F_distribuciones.GeneraDistribuciones(grafo);
+        List<double[]> Listprobdist = F_distribuciones.RealizaDistribuciones(grafo, card, alpha, ds);
+        int tamfactor = 1;
+
+        for (int p = 0; p < Listdist.size(); p++) {
+            tamfactor *= card[p];
+        }
+        int[] val = new int[card.length];
+        int ivar;
+        int cardAnterior;
+
+        for (int k = 0; k < tamfactor; k++) {
+            System.out.print(k + " ");
+            cardAnterior = 1;
+            for (int j = 0; j < vars.length; j++) {
+                ivar = vars[j];
+                val[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);
+                cardAnterior *= card[ivar];
+                System.out.print(val[j]);
+            }
+            System.out.print(" = ");
+            double prob = 1.0;
+            double a;
+            for (int j = 0; j < Listdist.size(); j++){
+                if (Listdist.get(j).length > 1){
+                    int[] aux = new int[Listdist.get(j).length];
+                    for (int l = 0; l < aux.length; l++){
+                        aux[l] = val[Listdist.get(j)[l]];
+                    }
+                    int[] auxcard = new int[Listdist.get(j).length];
+
+                    for (int n = 0; n < Listdist.get(j).length; n++)
+                        auxcard[n] = card[Listdist.get(j)[n]];
+
+                    int indice = GetIndex(aux,auxcard);
+                    a = Listprobdist.get(j)[indice];
+                }
+                else {
+                    a = Listprobdist.get(j)[val[Listdist.get(j)[0]]];
+                }
+                prob *= a;
+            }
+            System.out.print(prob);
+            System.out.println();
+            ConjuntaG.add(prob);
+        }
+        System.out.println();
+        return ConjuntaG;
+    }
+    public static double[] Inferencia (int[] vars, int [] valsE, int[] card, int alpha, int[][]g,int[][] dataset){
 
         List<Double> ConjuntaG = ConjuntaGrafo(vars,card,alpha,g,dataset);
 
         int[] varevidencia = Arrays.copyOfRange(vars,0,vars.length-1);
         int varconsulta = vars[vars.length-1];
-        int []auxval = new int[vars.length];
-        System.arraycopy(valsE,0,auxval,0,varevidencia.length);
+
+        int []auxvalds = new int[vars.length];
+        System.arraycopy(valsE,0,auxvalds,0,valsE.length);
+
         int indice;
         double[] prob = new double[card[varconsulta]];
-        int pos = 0;
+        double[] inferencia = new double[2];
 
         for (int i=0; i<card[varconsulta]; i++){
-            auxval[card[varconsulta]] = i;
-            indice = GetIndex(auxval,card);
+            auxvalds[auxvalds.length-1] = i;
+            indice = GetIndex(auxvalds,card);
 
             for (int j = 0; j < ConjuntaG.size(); j++){
                 if (j == indice){
@@ -159,12 +227,13 @@ public class Main {
             }
         }
         double max = Arrays.stream(prob).max().getAsDouble();
+        inferencia[1] = max;
 
         for (int k = 0; k < prob.length; k++){
             if (max == prob[k])
-                pos = k;
+                inferencia[0] = k;
         }
-        return pos;
+        return inferencia;
     }
 
     public static double[] MatrizDeConfusion (int[] vars, int[] card, int alpha, int[][]g,int[][] dataset){
@@ -173,6 +242,7 @@ public class Main {
         int[] arrval = new int[vars.length - 1];
         int[] arrclase = new int[dataset.length];
         int[] inf = new int[dataset.length];
+        double[] infaux = new double[2];
         double[] tp = new double[card[vars.length - 1]];
         double[] fp = new double[card[vars.length - 1]];
         double[] precision = new double[tp.length];
@@ -182,18 +252,20 @@ public class Main {
             for (int j = 0; j < dataset[i].length - 1; j++){
                 arrval[j] = dataset[i][j];
             }
-            inf[i] = Inferencia(vars,arrval,card,alpha,g,dataset);
+            infaux = Inferencia(vars,arrval,card,alpha,g,dataset);
+            inf[i] = (int) infaux[0];
         }
 
         System.out.println("Inferencia ");
         for (int i = 0; i < dataset.length; i++){
+            System.out.print(i + "  ");
             for (int j = 0; j < dataset[i].length; j++){
                 System.out.print(dataset[i][j]);
             }
             System.out.print(" " + inf[i]);
             System.out.println();
         }
-
+/*
         int[] auxarr = new int[card[vars.length - 1]];
 
         for (int p = 0; p < card[vars.length - 1]; p++){
@@ -201,7 +273,7 @@ public class Main {
         }
 
         for (int i = 0; i < dataset.length; i++){
-            arrclase[i] = dataset[i][dataset[i].length - 1];
+            arrclase[i] = dataset[i][dataset.length - 1];
         }
 
         for (int i = 0; i < auxarr.length;i++){
@@ -238,9 +310,30 @@ public class Main {
         System.out.println("Accuracy de todo = " + accuracy);
         System.arraycopy(precision,0,matriz,0,precision.length);
         matriz[matriz.length - 1] = accuracy;
-
-
+ */
         return matriz;
+    }
+
+    public static void CrossValidation (int[][] ds, int k){
+
+        int[] indexes = new int[ds.length];
+        for (int i=0; i<ds.length;i++)
+            indexes[i] = i;
+
+        int[][] foldIndexes = new int[k][];
+
+        int step = indexes.length / k;
+        int beginIndex = 0;
+
+        for (int i = 0; i < k - 1; i++) {
+            foldIndexes[i] = Arrays.copyOfRange(indexes, beginIndex, beginIndex + step);
+            beginIndex = beginIndex + step;
+        }
+
+        foldIndexes[k - 1] = Arrays.copyOfRange(indexes, beginIndex, indexes.length);
+
+        for (int i=0;i<foldIndexes.length;i++)
+            System.out.println(Arrays.toString(foldIndexes[i]));
     }
 
 }
