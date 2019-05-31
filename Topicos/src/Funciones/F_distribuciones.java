@@ -7,11 +7,11 @@ public class F_distribuciones {
 
     public static List<int[]> GeneraDistribuciones(int[][] grafo) {
 
-        List<int[]> listPosicionesDis = new ArrayList<int[]>();
-
+        List<int[]> listPosicionesDis = new ArrayList<>();
+        int[] aux;
         for (int i = 0; i < grafo.length; i++) {
             List<Integer> listAux = new ArrayList<Integer>();
-            int [] aux = new int [grafo.length];
+
             listAux.add(i);
             for (int j = 0; j < grafo[i].length; j++) {
                 if (grafo[j][i] == 1)
@@ -122,4 +122,58 @@ public class F_distribuciones {
 
         return Distribuciones;
     }
+
+    public static List<Double> ConjuntaGrafo(int[] vars, int[] card, int alpha, int[][]grafo, int[][]ds) {
+        //System.out.println();
+        //System.out.println("Distribucion Conjunta del grafo:");
+
+        List<Double> ConjuntaG = new ArrayList<>();
+        List<int[]> Listdist = F_distribuciones.GeneraDistribuciones(grafo);
+        List<double[]> Listprobdist = F_distribuciones.RealizaDistribuciones(grafo, card, alpha, ds);
+        int tamfactor = 1;
+
+        for (int p = 0; p < Listdist.size(); p++) {
+            tamfactor *= card[p];
+        }
+        int[] val = new int[card.length];
+        int ivar;
+        int cardAnterior;
+
+        for (int k = 0; k < tamfactor; k++) {
+            cardAnterior = 1;
+            for (int j = 0; j < vars.length; j++) {
+                ivar = vars[j];
+                val[j] = (int) (Math.floor(k / cardAnterior) % card[ivar]);
+                cardAnterior *= card[ivar];
+                //System.out.print(val[j]);
+            }
+
+            double prob = 1.0;
+            double a;
+            for (int j = 0; j < Listdist.size(); j++){
+                if (Listdist.get(j).length > 1){
+                    int[] aux = new int[Listdist.get(j).length];
+                    for (int l = 0; l < aux.length; l++){
+                        aux[l] = val[Listdist.get(j)[l]];
+                    }
+                    int[] auxcard = new int[Listdist.get(j).length];
+
+                    for (int n = 0; n < Listdist.get(j).length; n++)
+                        auxcard[n] = card[Listdist.get(j)[n]];
+
+                    int indice = F_herramientas.GetIndex(aux,auxcard);
+                    a = Listprobdist.get(j)[indice];
+                }
+                else {
+                    a = Listprobdist.get(j)[val[Listdist.get(j)[0]]];
+                }
+                prob *= a;
+            }
+
+            ConjuntaG.add(prob);
+        }
+
+        return ConjuntaG;
+    }
+
 }
