@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bf654be4-917f-4cb0-961f-d165e0015e4a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Topicos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Topicos.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Funciones/F_distribuciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Funciones/F_distribuciones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Funciones/F_herramientas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Funciones/F_herramientas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Funciones/F_visualizacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Funciones/F_visualizacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Funciones/F_visualizacion.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,14 +24,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+            <state relative-caret-position="510">
+              <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
               <folding>
-                <element signature="e#1183#1284#0" />
-                <element signature="method#CrossValidation#0;class#Main#0" />
-                <element signature="e#3035#3388#1" />
-                <element signature="e#3267#3365#1" />
-                <element signature="e#4101#4936#0" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#GetFolds#0;class#Main#0" />
+                <element signature="method#GetTrain#0;class#Main#0" />
+                <element signature="method#GetTest#0;class#Main#0" />
+                <element signature="e#5788#7623#1" />
+                <element signature="e#7892#9586#1" />
+                <element signature="e#9819#10518#1" />
               </folding>
             </state>
           </provider>
@@ -38,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Funciones/F_herramientas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="190" column="96" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
+            <state relative-caret-position="306">
+              <caret line="111" column="114" selection-start-line="111" selection-start-column="114" selection-end-line="111" selection-end-column="114" />
               <folding>
                 <element signature="method#ReadDs#0;class#F_herramientas#0" />
                 <element signature="method#ColumnasDs#0;class#F_herramientas#0" />
@@ -47,7 +51,7 @@
                 <element signature="method#toInArray#0;class#F_herramientas#0" />
                 <element signature="method#GetIndex#0;class#F_herramientas#0" />
                 <element signature="method#Inferencia#0;class#F_herramientas#0" />
-                <element signature="method#Consulta#0;class#F_herramientas#0" />
+                <element signature="method#ConsultaInf#0;class#F_herramientas#0" />
                 <element signature="method#TablaInferencia#0;class#F_herramientas#0" />
                 <element signature="method#MatrizDeConfusion#0;class#F_herramientas#0" />
                 <element signature="method#Medidas#0;class#F_herramientas#0" />
@@ -59,31 +63,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Funciones/F_distribuciones.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="187">
+              <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#GeneraDistribuciones#0;class#F_distribuciones#0" />
                 <element signature="method#RealizaDistribuciones#0;class#F_distribuciones#0" />
-                <element signature="method#DistribucionPConjunta#0;class#F_distribuciones#0" />
                 <element signature="method#ConjuntaGrafo#0;class#F_distribuciones#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Funciones/F_visualizacion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="179" column="5" lean-forward="true" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
-              <folding>
-                <element signature="method#VisualizarDistribuciones#0;class#F_visualizacion#0" />
-                <element signature="e#937#2772#1" />
-                <element signature="e#3560#4010#1" />
-                <element signature="e#4042#4691#1" />
-                <element signature="e#4968#5667#1" />
-                <element signature="e#5935#6144#1" />
               </folding>
             </state>
           </provider>
@@ -146,9 +132,9 @@
         <option value="$PROJECT_DIR$/data.txt" />
         <option value="$PROJECT_DIR$/src/Funciones/F_probabilidades.java" />
         <option value="$PROJECT_DIR$/src/Topicos_TP.java" />
-        <option value="$PROJECT_DIR$/src/Funciones/F_distribuciones.java" />
-        <option value="$PROJECT_DIR$/src/Funciones/F_visualizacion.java" />
         <option value="$PROJECT_DIR$/src/Funciones/F_herramientas.java" />
+        <option value="$PROJECT_DIR$/src/Funciones/F_visualizacion.java" />
+        <option value="$PROJECT_DIR$/src/Funciones/F_distribuciones.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
@@ -167,7 +153,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,21 +160,33 @@
               <item name="Topicos" type="b2602c69:ProjectViewProjectNode" />
               <item name="Topicos" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Topicos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Topicos" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Topicos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Topicos" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Funciones" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dependencias/weka-stable-3.8.3.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
@@ -315,11 +312,13 @@
       <workItem from="1559290565681" duration="2283000" />
       <workItem from="1559335663418" duration="14249000" />
       <workItem from="1559365076659" duration="10798000" />
+      <workItem from="1559410635690" duration="519000" />
+      <workItem from="1559411283703" duration="3111000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243652000" />
+    <option name="totallyTimeSpent" value="247282000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -334,7 +333,7 @@
     <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49769586" visible="true" weight="0.09040794" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49769586" visible="true" weight="0.09206174" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -345,13 +344,13 @@
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Cvs" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="TODO" order="4" sideWeight="0.49944875" visible="true" weight="0.066458985" />
+      <window_info anchor="bottom" id="TODO" order="4" sideWeight="0.4983462" weight="0.066458985" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" x="371" y="76" width="427" height="621" id="Debug" order="6" sideWeight="0.50230414" weight="0.3800623" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32872504" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3852544" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005513" side_tool="true" visible="true" weight="0.066458985" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5016538" side_tool="true" weight="0.066458985" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3271028" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -362,7 +361,7 @@
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Run" order="9" weight="0.32910696" />
+      <window_info active="true" anchor="right" id="Run" order="9" visible="true" weight="0.24807057" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.17063493" />
@@ -512,24 +511,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ds/dataset.txt" />
-    <entry file="file://$PROJECT_DIR$/src/Funciones/F_distribuciones.java">
+    <entry file="file://$PROJECT_DIR$/src/Funciones/F_visualizacion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GeneraDistribuciones#0;class#F_distribuciones#0" />
-            <element signature="method#RealizaDistribuciones#0;class#F_distribuciones#0" />
-            <element signature="method#DistribucionPConjunta#0;class#F_distribuciones#0" />
-            <element signature="method#ConjuntaGrafo#0;class#F_distribuciones#0" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Funciones/F_herramientas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="190" column="96" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
+        <state relative-caret-position="306">
+          <caret line="111" column="114" selection-start-line="111" selection-start-column="114" selection-end-line="111" selection-end-column="114" />
           <folding>
             <element signature="method#ReadDs#0;class#F_herramientas#0" />
             <element signature="method#ColumnasDs#0;class#F_herramientas#0" />
@@ -537,7 +529,7 @@
             <element signature="method#toInArray#0;class#F_herramientas#0" />
             <element signature="method#GetIndex#0;class#F_herramientas#0" />
             <element signature="method#Inferencia#0;class#F_herramientas#0" />
-            <element signature="method#Consulta#0;class#F_herramientas#0" />
+            <element signature="method#ConsultaInf#0;class#F_herramientas#0" />
             <element signature="method#TablaInferencia#0;class#F_herramientas#0" />
             <element signature="method#MatrizDeConfusion#0;class#F_herramientas#0" />
             <element signature="method#Medidas#0;class#F_herramientas#0" />
@@ -545,31 +537,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Funciones/F_visualizacion.java">
+    <entry file="file://$PROJECT_DIR$/src/Funciones/F_distribuciones.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="179" column="5" lean-forward="true" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
+        <state relative-caret-position="187">
+          <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
           <folding>
-            <element signature="method#VisualizarDistribuciones#0;class#F_visualizacion#0" />
-            <element signature="e#937#2772#1" />
-            <element signature="e#3560#4010#1" />
-            <element signature="e#4042#4691#1" />
-            <element signature="e#4968#5667#1" />
-            <element signature="e#5935#6144#1" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#GeneraDistribuciones#0;class#F_distribuciones#0" />
+            <element signature="method#RealizaDistribuciones#0;class#F_distribuciones#0" />
+            <element signature="method#ConjuntaGrafo#0;class#F_distribuciones#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        <state relative-caret-position="510">
+          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
           <folding>
-            <element signature="e#1183#1284#0" />
-            <element signature="method#CrossValidation#0;class#Main#0" />
-            <element signature="e#3035#3388#1" />
-            <element signature="e#3267#3365#1" />
-            <element signature="e#4101#4936#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#GetFolds#0;class#Main#0" />
+            <element signature="method#GetTrain#0;class#Main#0" />
+            <element signature="method#GetTest#0;class#Main#0" />
+            <element signature="e#5788#7623#1" />
+            <element signature="e#7892#9586#1" />
+            <element signature="e#9819#10518#1" />
           </folding>
         </state>
       </provider>
@@ -625,6 +617,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
+          <last-edited>Topicos</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -636,6 +629,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>weka-stable-3.8.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

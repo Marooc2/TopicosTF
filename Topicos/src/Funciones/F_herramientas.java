@@ -113,7 +113,6 @@ public class F_herramientas {
 
         List<Double> ConjuntaG = F_distribuciones.ConjuntaGrafo(vars,card,alpha,g,dataset);
 
-        int[] varevidencia = Arrays.copyOfRange(vars,0,vars.length-1);
         int varconsulta = vars[vars.length-1];
 
         int []auxvalds = new int[vars.length];

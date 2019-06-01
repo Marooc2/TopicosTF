@@ -119,7 +119,6 @@ public class F_distribuciones {
             System.out.println(" = " + pc);
             Distribuciones.add(pc);
         }
-
         return Distribuciones;
     }
 
