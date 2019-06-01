@@ -11,6 +11,8 @@ public class F_visualizacion {
         int[][] matriz_de_confusion = F_herramientas.MatrizDeConfusion(vars,card,alpha,grafo,ds);
         List<Double> listConjuntaGrafo = F_distribuciones.ConjuntaGrafo(vars,card,alpha,grafo,ds);
         int[] arrinferencia = F_herramientas.TablaInferencia(vars,card,alpha,grafo,ds);
+        double[] medidas = F_herramientas.Medidas(vars,card,alpha,grafo,ds);
+
         int aux;
 
         /////Impresion de distribuciones MA////
@@ -168,7 +170,13 @@ public class F_visualizacion {
         }
         System.out.println("------------------");
         System.out.println();
-
+        /////Impresion medidas//////
+        System.out.println("Medidas");
+        System.out.println("------------------");
+        System.out.println ("Presición: "+ medidas[0]);
+        System.out.println ("Recall: "+ medidas[1]);
+        System.out.println ("F1: "+ medidas[2]);
+        System.out.println("------------------");
     }
 
 }

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bf654be4-917f-4cb0-961f-d165e0015e4a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Funciones/F_distribuciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Funciones/F_distribuciones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Funciones/F_herramientas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Funciones/F_herramientas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Funciones/F_visualizacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Funciones/F_visualizacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
@@ -20,13 +19,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="45" column="4" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
+            <state relative-caret-position="170">
+              <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
               <folding>
-                <element signature="e#1156#1257#0" />
+                <element signature="e#1183#1284#0" />
+                <element signature="method#CrossValidation#0;class#Main#0" />
+                <element signature="e#3035#3388#1" />
+                <element signature="e#3267#3365#1" />
+                <element signature="e#4101#4936#0" />
               </folding>
             </state>
           </provider>
@@ -35,33 +38,52 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Funciones/F_herramientas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
+            <state relative-caret-position="408">
+              <caret line="190" column="96" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#ReadDs#0;class#F_herramientas#0" />
                 <element signature="method#ColumnasDs#0;class#F_herramientas#0" />
                 <element signature="method#GeneraVariables#0;class#F_herramientas#0" />
                 <element signature="method#toInArray#0;class#F_herramientas#0" />
                 <element signature="method#GetIndex#0;class#F_herramientas#0" />
+                <element signature="method#Inferencia#0;class#F_herramientas#0" />
+                <element signature="method#Consulta#0;class#F_herramientas#0" />
+                <element signature="method#TablaInferencia#0;class#F_herramientas#0" />
+                <element signature="method#MatrizDeConfusion#0;class#F_herramientas#0" />
+                <element signature="method#Medidas#0;class#F_herramientas#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Funciones/F_visualizacion.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Funciones/F_distribuciones.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="161" column="9" lean-forward="true" selection-start-line="161" selection-start-column="9" selection-end-line="161" selection-end-column="9" />
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#556#2391#1" />
-                <element signature="e#2546#4240#1" />
-                <element signature="e#2792#3529#1" />
-                <element signature="e#3547#4196#1" />
-                <element signature="e#4879#5578#1" />
-                <element signature="e#5932#6016#1" />
+                <element signature="method#GeneraDistribuciones#0;class#F_distribuciones#0" />
+                <element signature="method#RealizaDistribuciones#0;class#F_distribuciones#0" />
+                <element signature="method#DistribucionPConjunta#0;class#F_distribuciones#0" />
+                <element signature="method#ConjuntaGrafo#0;class#F_distribuciones#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Funciones/F_visualizacion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="179" column="5" lean-forward="true" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
+              <folding>
+                <element signature="method#VisualizarDistribuciones#0;class#F_visualizacion#0" />
+                <element signature="e#937#2772#1" />
+                <element signature="e#3560#4010#1" />
+                <element signature="e#4042#4691#1" />
+                <element signature="e#4968#5667#1" />
+                <element signature="e#5935#6144#1" />
               </folding>
             </state>
           </provider>
@@ -125,17 +147,16 @@
         <option value="$PROJECT_DIR$/src/Funciones/F_probabilidades.java" />
         <option value="$PROJECT_DIR$/src/Topicos_TP.java" />
         <option value="$PROJECT_DIR$/src/Funciones/F_distribuciones.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/Funciones/F_herramientas.java" />
         <option value="$PROJECT_DIR$/src/Funciones/F_visualizacion.java" />
+        <option value="$PROJECT_DIR$/src/Funciones/F_herramientas.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="768" />
-    <option name="y" value="-12" />
-    <option name="width" value="697" />
-    <option name="height" value="775" />
+    <option name="x" value="-7" />
+    <option name="width" value="943" />
+    <option name="height" value="1087" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -145,30 +166,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Topicos" type="b2602c69:ProjectViewProjectNode" />
               <item name="Topicos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Topicos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Topicos" type="462c0819:PsiDirectoryNode" />
-              <item name="ds" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Topicos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Topicos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Topicos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Topicos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Funciones" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -308,12 +313,13 @@
       <workItem from="1559186583982" duration="6600000" />
       <workItem from="1559247635507" duration="13357000" />
       <workItem from="1559290565681" duration="2283000" />
-      <workItem from="1559335663418" duration="6740000" />
+      <workItem from="1559335663418" duration="14249000" />
+      <workItem from="1559365076659" duration="10798000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225345000" />
+    <option name="totallyTimeSpent" value="243652000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -325,10 +331,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49769586" weight="0.11875945" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49769586" visible="true" weight="0.09040794" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -339,13 +345,13 @@
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Cvs" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="4" weight="0.32718894" />
+      <window_info active="true" anchor="bottom" id="TODO" order="4" sideWeight="0.49944875" visible="true" weight="0.066458985" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" x="371" y="76" width="427" height="621" id="Debug" order="6" sideWeight="0.50230414" visible="true" weight="0.09831029" />
+      <window_info anchor="bottom" x="371" y="76" width="427" height="621" id="Debug" order="6" sideWeight="0.50230414" weight="0.3800623" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32872504" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3852544" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005513" side_tool="true" visible="true" weight="0.066458985" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3271028" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -356,7 +362,7 @@
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info active="true" anchor="right" id="Run" order="9" visible="true" weight="0.2685325" />
+      <window_info anchor="right" id="Run" order="9" weight="0.32910696" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.17063493" />
@@ -406,8 +412,9 @@
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="Application">
-        <watch expression="arrclase" language="JAVA" />
-        <watch expression="arrinf" language="JAVA" />
+        <watch expression="dstest" language="JAVA" />
+        <watch expression="dstrain" language="JAVA" />
+        <watch expression="dstrain.get(0)" />
       </configuration>
     </watches-manager>
   </component>
@@ -418,52 +425,52 @@
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
+        <expression-string>dstrain</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>dstest</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>indices</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>x</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>filas_test.get(test)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fold_k.size()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fold_k.size</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>folds.get(0)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>folds</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>arrinf</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>arrclase</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>auxvalds</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>prob</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>valsE</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>arrval</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>indice</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>auxval</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>varconsulta</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>varevidencia</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -504,13 +511,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ds/dataset.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ds/dataset.txt" />
     <entry file="file://$PROJECT_DIR$/src/Funciones/F_distribuciones.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -525,43 +526,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="45" column="4" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-          <folding>
-            <element signature="e#1156#1257#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Funciones/F_herramientas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
+        <state relative-caret-position="408">
+          <caret line="190" column="96" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#ReadDs#0;class#F_herramientas#0" />
             <element signature="method#ColumnasDs#0;class#F_herramientas#0" />
             <element signature="method#GeneraVariables#0;class#F_herramientas#0" />
             <element signature="method#toInArray#0;class#F_herramientas#0" />
             <element signature="method#GetIndex#0;class#F_herramientas#0" />
+            <element signature="method#Inferencia#0;class#F_herramientas#0" />
+            <element signature="method#Consulta#0;class#F_herramientas#0" />
+            <element signature="method#TablaInferencia#0;class#F_herramientas#0" />
+            <element signature="method#MatrizDeConfusion#0;class#F_herramientas#0" />
+            <element signature="method#Medidas#0;class#F_herramientas#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Funciones/F_visualizacion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="161" column="9" lean-forward="true" selection-start-line="161" selection-start-column="9" selection-end-line="161" selection-end-column="9" />
+        <state relative-caret-position="102">
+          <caret line="179" column="5" lean-forward="true" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#556#2391#1" />
-            <element signature="e#2546#4240#1" />
-            <element signature="e#2792#3529#1" />
-            <element signature="e#3547#4196#1" />
-            <element signature="e#4879#5578#1" />
-            <element signature="e#5932#6016#1" />
+            <element signature="method#VisualizarDistribuciones#0;class#F_visualizacion#0" />
+            <element signature="e#937#2772#1" />
+            <element signature="e#3560#4010#1" />
+            <element signature="e#4042#4691#1" />
+            <element signature="e#4968#5667#1" />
+            <element signature="e#5935#6144#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding>
+            <element signature="e#1183#1284#0" />
+            <element signature="method#CrossValidation#0;class#Main#0" />
+            <element signature="e#3035#3388#1" />
+            <element signature="e#3267#3365#1" />
+            <element signature="e#4101#4936#0" />
           </folding>
         </state>
       </provider>

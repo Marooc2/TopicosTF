@@ -109,6 +109,40 @@ public class F_herramientas {
         return inferencia;
     }
 
+    public static double[] ConsultaInf (int[] vars, int [] valsE, int[] card, int alpha, int[][]g,int[][] dataset){
+
+        List<Double> ConjuntaG = F_distribuciones.ConjuntaGrafo(vars,card,alpha,g,dataset);
+
+        int[] varevidencia = Arrays.copyOfRange(vars,0,vars.length-1);
+        int varconsulta = vars[vars.length-1];
+
+        int []auxvalds = new int[vars.length];
+        System.arraycopy(valsE,0,auxvalds,0,valsE.length);
+
+        int indice;
+        double[] prob = new double[card[varconsulta]];
+        double[] inferencia = new double[2];
+
+        for (int i=0; i<card[varconsulta]; i++){
+            auxvalds[auxvalds.length-1] = i;
+            indice = GetIndex(auxvalds,card);
+
+            for (int j = 0; j < ConjuntaG.size(); j++){
+                if (j == indice){
+                    prob[i] = ConjuntaG.get(j);
+                }
+            }
+        }
+        double max = Arrays.stream(prob).max().getAsDouble();
+        inferencia[1] = max;
+
+        for (int k = 0; k < prob.length; k++){
+            if (max == prob[k])
+                inferencia[0] = k;
+        }
+        return inferencia;
+    }
+
     public static int[] TablaInferencia(int[] vars, int[] card, int alpha, int[][]g,int[][] dataset){
         int[] arrval = new int[vars.length - 1];
         int[] arrinf = new int[dataset.length];
@@ -154,4 +188,35 @@ public class F_herramientas {
         return matrixConfusion;
     }
 
+    public static double[] Medidas (int[] vars, int[] card, int alpha, int[][]g,int[][] dataset){
+        double TP = 0.0;
+        double FN = 0.0;
+        double FP = 0.0;
+        int[][] matrixConfusion = MatrizDeConfusion(vars,card,alpha,g,dataset);
+        double[] medidas = new double[3];
+        //System.out.println ("Matriz de Confusión");
+        for(int i = 0;i<matrixConfusion.length;i++){
+            for(int j = 0;j<matrixConfusion.length;j++){
+                //System.out.print (matrixConfusion[i][j] + " ");
+                if(i == j){
+                    TP++;
+                }
+                else if(i<j){
+                    FN++;
+                }
+                else if(j>i){
+                    FP++;
+                }
+            }
+            //System.out.println ("");
+        }
+        double precision = (TP/(TP+FP));
+        double recall = (TP/(TP+FN));
+        double f1 = ((2*(TP/(TP+FP))*(TP/(TP+FN)))/((TP/(TP+FP))+(TP/(TP+FN))));
+        medidas[0]=precision;
+        medidas[1]=recall;
+        medidas[2]=f1;
+
+    return medidas;
+}
 }
