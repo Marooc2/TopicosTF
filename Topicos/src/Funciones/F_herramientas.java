@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.DoubleStream;
+import weka.core.Instances;
+import weka.core.converters.ConverterUtils;
 
 public class F_herramientas {
 
@@ -187,35 +190,97 @@ public class F_herramientas {
         return matrixConfusion;
     }
 
-    public static double[] Medidas (int[] vars, int[] card, int alpha, int[][]g,int[][] dataset){
-        double TP = 0.0;
-        double FN = 0.0;
-        double FP = 0.0;
+    public static List<double[]> Medidas (int[] vars, int[] card, int alpha, int[][]g,int[][] dataset){
+
         int[][] matrixConfusion = MatrizDeConfusion(vars,card,alpha,g,dataset);
-        double[] medidas = new double[3];
-        //System.out.println ("Matriz de Confusión");
+
+        double[] recall = new double[card[vars.length-1]];
+        double[] f1 = new double[card[vars.length-1]];
+        double[] precision = new double[card[vars.length-1]];
+        double[] accuaracy = new double[1];
+
+
+        List<double[]> medidas = new ArrayList<>();
+
+
+        double[]TP = new double[matrixConfusion.length];
+        double[]FP = new double[matrixConfusion.length];
+        double[]FN = new double[matrixConfusion.length];
+
         for(int i = 0;i<matrixConfusion.length;i++){
             for(int j = 0;j<matrixConfusion.length;j++){
-                //System.out.print (matrixConfusion[i][j] + " ");
                 if(i == j){
-                    TP++;
+                    TP[i]=matrixConfusion[i][j];
                 }
-                else if(i<j){
-                    FN++;
+                if(j > i){
+                    FP[j] += matrixConfusion[i][j];
+                    FN[i] += matrixConfusion[i][j];
                 }
-                else if(j>i){
-                    FP++;
+                if(j < i){
+                    FP[j] += matrixConfusion[i][j];
+                    FN[i] += matrixConfusion[i][j];
                 }
             }
-            //System.out.println ("");
         }
-        double precision = (TP/(TP+FP));
-        double recall = (TP/(TP+FN));
-        double f1 = ((2*(TP/(TP+FP))*(TP/(TP+FN)))/((TP/(TP+FP))+(TP/(TP+FN))));
-        medidas[0]=precision;
-        medidas[1]=recall;
-        medidas[2]=f1;
+        for (int i = 0; i < matrixConfusion.length; i++){
+            precision[i] = TP[i]/(TP[i]+FP[i]);
+            recall[i] = TP[i]/(TP[i]+FN[i]);
+            f1[i] = (2*precision[i]*recall[i]/precision[i]+recall[i]);
+
+            if (Double.isNaN(precision[i])||Double.isNaN(recall[i])||Double.isNaN(f1[i])){
+                precision[i] = 0;
+                recall[i] = 0;
+                f1[i] = 0;
+            }
+        }
+        accuaracy[0] = DoubleStream.of(TP).sum()/dataset.length;
+
+        medidas.add(precision);
+        medidas.add(recall);
+        medidas.add(f1);
+        medidas.add(accuaracy);
 
     return medidas;
 }
+
+    public static int[][] LeerDataArff(String file) throws Exception {
+
+        ConverterUtils.DataSource source = new ConverterUtils.DataSource (file);
+        Instances newData = source.getDataSet ();
+        int numVariables = newData.numAttributes ();
+
+        int[][] data = new int[newData.size()][numVariables];
+
+        for ( int i = 0; i < newData.numInstances (); i++ ) {
+            int[] aux = new int[numVariables];
+            for ( int j = 0; j < newData.numAttributes (); j++ ) {
+                aux[j] = (int) newData.instance (i).value (j);
+            }
+            data[i] = aux;
+        }
+        return data;
+    }
+
+    public static int[] LeerCardinalidad(String file) throws Exception {
+        ConverterUtils.DataSource source = new ConverterUtils.DataSource (file);
+        Instances newData = source.getDataSet ();
+        int numVariables = newData.numAttributes ();
+        int[] card = new int[numVariables];
+        for ( int i = 0; i < card.length; i++ ) {
+            card[i] = newData.attribute (i).numValues ();
+        }
+        return card;
+    }
+
+    public static int[] LeerVariables(String file) throws Exception {
+        ConverterUtils.DataSource source = new ConverterUtils.DataSource (file);
+        Instances newData = source.getDataSet ();
+
+        int [] vars = new int[newData.numAttributes()];
+
+        for (int i = 0; i < vars.length; i++ ) {
+            vars[i] = i;
+        }
+        return vars;
+    }
 }

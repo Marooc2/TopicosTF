@@ -1,0 +1,11 @@
+@relation 'datasds'
+@attribute A {'Bajo','Alto'}
+@attribute B {'Bajo','Medio','Alto'}
+@attribute C {'Bajo','Alto'}
+@attribute D {'Bajo','Medio','Alto'}
+@data
+"Bajo","Medio","Alto","Medio"
+"Alto","Alto","Alto","Bajo"
+"Bajo","Bajo","Bajo","Alto"
+"Alto","Medio","Bajo","Bajo"
+"Bajo","Alto","Bajo","Alto"

@@ -1,140 +1,62 @@
 
 import java.util.ArrayList;
-import java.io.FileNotFoundException;
+import java.util.Scanner;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import weka.core.converters.ConverterUtils.DataSource;
+import java.util.InputMismatchException;
 import Funciones.*;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws Exception {
         //INPUT
+
+        //Lectura del dataset // INGRESAR NOMBRE DE ARCHIVO
+        String data = "ds/WeatherNominal.arff";
+        int[][] dataset = F_herramientas.LeerDataArff(data);
+
+        //Cross Validation K-fold orenado y aleatorio
+        List<List<int[]>> folds = CrossValidation.GetFolds(dataset,true,10);
+        List<int[][]> train = CrossValidation.Train(folds,10);
+        List<int[][]> test = CrossValidation.Test(folds,10);
+
         //Matriz de adyacencia de g
         int[][] g = {
-                {0, 1, 0, 0, 0},
-                {0, 0, 0, 1, 0},
-                {0, 0, 0, 1, 0},
-                {0, 0, 0, 0, 1},
-                {0, 0, 0, 0, 0},
+                {0, 1, 0, 0},
+                {0, 0, 0, 1},
+                {0, 0, 0, 1},
+                {0, 0, 0, 0},
         };
-        //Ingresar las cardinalidades
-        int[] card = {3,3,4,2,3};
-        int[] vars = {0,1,2,3,4};
+        //Cardinalidades, variables y alpha
+        int[] card = F_herramientas.LeerCardinalidad(data);
+        int[] vars = F_herramientas.LeerVariables(data);
         int alpha = 1;
-        //Lectura del dataset // INGRESAR NOMBRE DE ARCHIVO
-        int[][] dataset = F_herramientas.ReadDs("ds/dataset.txt");
-        int columnas = F_herramientas.ColumnasDs(dataset);
+
         //Transformar la vista de las distribuciones de numeros a letras
+        int columnas = F_herramientas.ColumnasDs(dataset);
         char[] varnames = new char[columnas];
         varnames = F_herramientas.GeneraVariables(varnames);
-        
+
         //Impresion
-        Impresion(g, vars,card, alpha, dataset, varnames);
+        Impresion(g, vars,card, alpha, dataset, varnames,columnas);
 
-        int[][] data = {{0,2}, {1,1}, {0,0}, {1,2}, {0,2}, {1,0}, {0,0},
-                        {1,1}, {0,1}, {1,2}, {0,2}, {0,2}, {1,2}};
+
     }
 
-    public static List<List<int[]>> GetFolds (int[][] ds, boolean ordenado, int[] vars, int k){
-        int m = ds.length;
-
-        int tam_fold = m/k;
-        List<List<int[]>> folds = new ArrayList<>();
-
-        for (int i=0; i < k; i++){
-            List<int[]> fold_k = new ArrayList<>();
-            folds.add(fold_k);
-        }
-
-        int[] indices = new int[m];
-        Random aleatorio = new Random(System.currentTimeMillis());
-        /////Cross ordenado o aleatorio//////
-
-        if (ordenado==false){
-            for(int i=0;i < m; i++){
-                int x = aleatorio.nextInt(50);
-                aleatorio.setSeed(System.currentTimeMillis());
-                x = x % m;
-                if (!Arrays.asList(indices).contains(x)){
-                    indices[i] = x;
-                }
-            }
-        }
-        else {
-            for (int i = 0; i < m; i++){
-                indices[i]=i;
-            }
-        }
-
-        /////Llenado de los k_folds//////
-        int f=0;
-        for (Integer i:indices){
-            int[] ins = ds[i];
-            List<int[]> fold_k = folds.get(f);
-            fold_k.add(ins);
-            f = (f+1) % k;
-        }
-
-        /////Impresion///////
-        System.out.println();
-        for (int i=0; i<folds.size();i++){
-            for (int j=0; j<folds.get(i).size();j++){
-                //System.out.println(Arrays.toString(folds.get(i).get(j)));
-            }
-            //System.out.println();
-        }
-        return folds;
-    }
-
-    public static List<List<List<int[]>>> GetTrain (int[][] ds, boolean ordenado, int[] vars, int k){
-
-        List<List<int[]>> folds = GetFolds(ds,ordenado,vars,k);
-        List<List<List<int[]>>> dstrain = new ArrayList<> ();
-
-
-        for(int test = 0 ; test<k ; test++){
-            List<List<int[]>>aux2 = new ArrayList<> ();
-            for(int train = 0 ; train <k ; train++){
-                if(test != train){
-                    aux2.add (folds.get (train));
-                }
-            }
-            dstrain.add (aux2);
-        }
-        return dstrain;
-    }
-
-    public static List<List<List<int[]>>> GetTest (int[][] ds, boolean ordenado, int[] vars, int k){
-
-        List<List<int[]>> folds = GetFolds(ds,ordenado,vars,k);
-        List<List<List<int[]>>> dstest = new ArrayList<> ();
-
-        for(int test = 0 ; test<k ; test++){
-            List<List<int[]>>aux = new ArrayList<> ();
-            for(int train = 0 ; train <k ; train++){
-                if(test == train){
-                    aux.add (folds.get (test));
-                    dstest.add (aux);
-                }
-            }
-        }
-        return dstest;
-    }
-
-    public static void Impresion(int[][] grafo,int [] vars, int[] card, int alpha, int[][] ds, char[] vn) {
+    public static void Impresion(int[][] grafo,int [] vars, int[] card, int alpha, int[][] ds, char[] vn,int columnas) {
         List<int[]> listDis = F_distribuciones.GeneraDistribuciones(grafo);
         List<double[]> listDistribucionesGrafo = F_distribuciones.RealizaDistribuciones(grafo, card, alpha, ds);
         int[][] matriz_de_confusion = F_herramientas.MatrizDeConfusion(vars,card,alpha,grafo,ds);
         List<Double> listConjuntaGrafo = F_distribuciones.ConjuntaGrafo(vars,card,alpha,grafo,ds);
         int[] arrinferencia = F_herramientas.TablaInferencia(vars,card,alpha,grafo,ds);
-        double[] medidas = F_herramientas.Medidas(vars,card,alpha,grafo,ds);
-
+        List<double[]> medidas = F_herramientas.Medidas(vars,card,alpha,grafo,ds);
         int aux;
+
         /////Impresion de distribuciones MA////
         System.out.println("Distribuciones de la matriz de Adyacencia:");
         System.out.println("------------------");
         for (int i = 0; i < listDis.size(); i++) {
+            boolean boleano = true;
             for (int j = 0; j < listDis.get(i).length; j++) {
                 aux = listDis.get(i)[j];
                 switch (aux) {
@@ -165,14 +87,20 @@ public class Main {
                     default:
                         System.out.println("N");
                 }
-                if (j<listDis.get(i).length - 1)
-                    System.out.print("|");
+                if (boleano) {
+                    if (j < listDis.get(i).length - 1) {
+                        System.out.print("|");
+                        boleano = false;
+                    }
+                }
             }
             System.out.println();
         }
         System.out.println("------------------");
         System.out.println();
 
+
+        /*
         /////Impresion distribuciones/////
         System.out.println("Distribuciones");
         System.out.println("------------------");
@@ -219,18 +147,21 @@ public class Main {
         }
         System.out.println("------------------");
         System.out.println();
+        */
 
-        /////Impresion distribucion conjunta dataset//////
 
         /*
+        /////Impresion distribucion conjunta dataset//////
         int[] variablesConjunta = {0,1,2,3,4};
         System.out.println("Distribucion Conjunta del dataset: ");
         System.out.println("------------------");
-        F_distribuciones.DistribucionPConjunta(variablesConjunta, card, alpha, ds);
+        F_distribuciones.ConjuntaDs(variablesConjunta, card, alpha, ds);
         System.out.println("------------------");
         System.out.println();
-         */
+        */
 
+
+        /*
         /////Impresion Conjunta grafo/////
         System.out.println("Conjunta del grafo");
         System.out.println("------------------");
@@ -255,16 +186,8 @@ public class Main {
         }
         System.out.println("------------------");
         System.out.println();
+        */
 
-        /////Consulta inferencia//////
-        System.out.println("Consulta inferencia");
-        System.out.println("------------------");
-        int[] valsEvidencia = {1,2,3,1};
-        double[] inferencia = F_herramientas.ConsultaInf(vars,valsEvidencia,card,alpha,grafo,ds);
-        System.out.println("Inferencia de clase cuando " + Arrays.toString(valsEvidencia)+": "
-                + (int) inferencia[0] + " con la probabilidad de: " + String.format("%.5f",inferencia[1]));
-        System.out.println("------------------");
-        System.out.println();
 
         /////Impresion Tabla inferencia/////
         System.out.println("Tabla inferencia");
@@ -281,6 +204,33 @@ public class Main {
         System.out.println("------------------");
         System.out.println();
 
+
+      /*  /////Consulta inferencia//////
+        System.out.println("Consulta inferencia");
+        System.out.println("------------------");
+        int[] valsEvidencia = new int[columnas - 1];
+        Scanner reader = new Scanner(System.in);
+        int numero;
+        int iterador = 0;
+        System.out.println("Introduce " + valsEvidencia.length+ " evidencias. Numero enter Numero ...");
+
+        do {
+            try {
+                numero = reader.nextInt();
+                valsEvidencia[iterador] = numero;
+                iterador++;
+            } catch (InputMismatchException ime){
+                System.out.println("¡Cuidado! Solo puedes insertar números. ");
+                reader.next();
+            }
+        } while (iterador != valsEvidencia.length);
+        double[] inferencia = F_herramientas.ConsultaInf(vars,valsEvidencia,card,alpha,grafo,ds);
+        System.out.println("Inferencia de clase cuando E:" + Arrays.toString(valsEvidencia)+": "
+                + (int) inferencia[0] + " con la probabilidad de: " + String.format("%.5f",inferencia[1]));
+        System.out.println("------------------");
+        System.out.println();
+*/
+
         /////Impresion matriz de confusion/////
         System.out.println("Matriz de Confusion");
         System.out.println("------------------");
@@ -290,12 +240,14 @@ public class Main {
         System.out.println("------------------");
         System.out.println();
 
+
         /////Impresion medidas//////
         System.out.println("Medidas");
         System.out.println("------------------");
-        System.out.println ("Presición: "+ medidas[0]);
-        System.out.println ("Recall: "+ medidas[1]);
-        System.out.println ("F1: "+ medidas[2]);
+        System.out.println("Presicion: " + Arrays.toString(medidas.get(0)));
+        System.out.println("Recall: " + Arrays.toString(medidas.get(1)));
+        System.out.println("F1: " + Arrays.toString(medidas.get(2)));
+        System.out.println("Accuaracy: " + medidas.get(3)[0]);
         System.out.println("------------------");
     }
 }

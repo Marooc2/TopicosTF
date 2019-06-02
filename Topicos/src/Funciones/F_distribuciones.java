@@ -92,7 +92,7 @@ public class F_distribuciones {
         return listDistribuciones;
     }
 
-    public static List<Double> DistribucionPConjunta(int[] var, int[] card, int alpha, int[][] ds) {
+    public static List<Double> ConjuntaDs(int[] var, int[] card, int alpha, int[][] ds) {
         int[] val = new int[var.length];
         int ivar;
         int cardAnterior;
@@ -123,8 +123,6 @@ public class F_distribuciones {
     }
 
     public static List<Double> ConjuntaGrafo(int[] vars, int[] card, int alpha, int[][]grafo, int[][]ds) {
-        //System.out.println();
-        //System.out.println("Distribucion Conjunta del grafo:");
 
         List<Double> ConjuntaG = new ArrayList<>();
         List<int[]> Listdist = F_distribuciones.GeneraDistribuciones(grafo);
